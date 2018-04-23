@@ -12,7 +12,7 @@
             <ImageBrush ImageSource="Assets/Wood-Wallpaper.jpg"/>
         </Grid.Background>
         <Rectangle Width="1920" Height="1080" Fill="#00000000"/>
-
+        <!--hrj-->
         <Rectangle Name="btnShowPaneBack" Width="36" Height="30" Margin="35,39,0,0" Tapped="BtnShowPane_OnClick" VerticalAlignment="Top" HorizontalAlignment="Left" Fill="#33000000" Visibility="Collapsed"/>
         <TextBlock Name="btnShowPane" FontSize="26" FontFamily="Segoe MDL2 Assets" Text="&#xE700;" Margin="40,40,0,0" Tapped="BtnShowPane_OnClick" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" PointerEntered="BtnShowPane_OnPointerEntered" PointerExited="BtnShowPane_OnPointerExited"></TextBlock>
         <Popup Name="MenuPopup" IsOpen="False">
