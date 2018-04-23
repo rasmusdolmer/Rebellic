@@ -9,7 +9,7 @@
 
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="Assets/Wood-Wallpaper.jpg"/>
+            <ImageBrush ImageSource="Assets/260561.jpg"/>
         </Grid.Background>
         <Rectangle Width="1920" Height="1080" Fill="#00000000"/>
 
