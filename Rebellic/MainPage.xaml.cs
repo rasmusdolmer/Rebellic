@@ -405,6 +405,20 @@ namespace Rebellic
                         AngivKontakOplGrid.Visibility = Visibility.Visible;
                         videreTilBekræftT.Visibility = Visibility.Visible;
                         videreTilBekræftIkon.Visibility = Visibility.Visible;
+                        GivneMobilNr.Text = KontaktTlf.Text;
+                        KontaktFødselsdag.MaxYear = DateTime.Today.AddYears(-15);
+                        KontaktFødselsdag.Date = DateTime.Today.AddYears(-15);
+                        if (GivneMobilNr.Text == "28694800")
+                        {
+                            KontaktNavn.Text = "Rasmus Andersen";
+                            KontaktAdresse.Text = "Vildtbaneparken 57";
+                            KontaktPostby.Text = "2635";
+                            KontaktBy.Text = "Ishøj";
+                            KontaktEmail.Text = "rasmusdolmer@gmail.com";
+                            KontaktTlf2.Text = "28694800";
+                            KontaktKøn.Text = "Mand";
+                            //KontaktFødselsdag.Date = 
+                        }
                     }
                     break;
             }

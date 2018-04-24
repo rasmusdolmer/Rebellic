@@ -35,7 +35,7 @@
             </StackPanel>
         </Popup>
         <Grid>
-            <Grid Name="VælgService" Width="900" Visibility="Collapsed" Height="560" Background="#D8FFFFFF" Margin="0,0,0,100" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Grid Name="VælgService" Width="900" Visibility="Visible" Height="560" Background="#D8FFFFFF" Margin="0,0,0,100" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Height="60" Background="White" Padding="9 0">
                     <TextBlock Text="VÆLG SERVICE" Width="675" HorizontalAlignment="Center" Padding="207,0,2,0" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="24" Foreground="#FF333333" TextAlignment="Center" FontFamily="Segoe UI"></TextBlock>
                     <TextBlock Tapped="BookingVidere" Name="videreTilMedarT" Text="VÆLG MEDARBEJDER" HorizontalAlignment="Center" VerticalAlignment="Center" Width="165" FontWeight="SemiBold" FontSize="16" Foreground="LightGray" TextAlignment="Center" PointerEntered="ChangeCursorTilMedarbejderEnter" PointerExited="ChangeCursorTilMedarbejderExit"></TextBlock>
@@ -187,15 +187,15 @@
                 <TextBlock Name="valgteTidTekst" FontWeight="SemiBold" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36" Foreground="#FF333333" ></TextBlock>
                 <!--<Border Name="vælgtidborder" Width="100" Visibility="Collapsed" Height="32" VerticalAlignment="Top" Margin="63,100,0,0" BorderBrush="DodgerBlue" BorderThickness="2"/>-->
             </Grid>
-            <Grid Name="AngivKontaktOplysninger" Visibility="Visible" Width="900" Height="560" Background="#D8FFFFFF" Margin="0,0,0,100" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Grid Name="AngivKontaktOplysninger" Visibility="Collapsed" Width="900" Height="560" Background="#D8FFFFFF" Margin="0,0,0,100" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Height="60" Background="White" Padding="9 0">
                     <TextBlock Tapped="BookingVidere" Name="tilbageTilTidIkon" FontFamily="Segoe MDL2 Assets" Text="&#xEC52;" Margin="0,4,0,0" Width="25" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="20" Foreground="#FFFF3636" TextAlignment="Right" PointerEntered="ChangeCursorTilMedarbejderEnter" PointerExited="ChangeCursorTilMedarbejderExit"></TextBlock>
                     <TextBlock Tapped="BookingVidere" Name="tilbageTilTidT" Text="VÆLG TIDSPUNKT" HorizontalAlignment="Center" VerticalAlignment="Center" Width="140" FontWeight="SemiBold" FontSize="16" Foreground="#FFFF3636" TextAlignment="Center" PointerEntered="ChangeCursorTilMedarbejderEnter" PointerExited="ChangeCursorTilMedarbejderExit"></TextBlock>
-                    <TextBlock Text="ANGIV KONTAKTOPLYSNINGER" Width="530" HorizontalAlignment="Center" Padding="20,0,2,0" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="24" Foreground="#FF333333" TextAlignment="Center" FontFamily="Segoe UI"></TextBlock>
-                    <TextBlock Tapped="BookingVidere" Visibility="Collapsed" Name="videreTilBekræftT" Text="BEKRÆFT BOOKING" HorizontalAlignment="Center" VerticalAlignment="Center" Width="160" FontWeight="SemiBold" FontSize="16" Foreground="LightGray" TextAlignment="Center"></TextBlock>
+                    <TextBlock Text="ANGIV KONTAKTOPLYSNINGER" Width="544" HorizontalAlignment="Center" Padding="20,0,2,0" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="24" Foreground="#FF333333" TextAlignment="Center" FontFamily="Segoe UI"></TextBlock>
+                    <TextBlock Tapped="BookingVidere" Visibility="Collapsed" Name="videreTilBekræftT" Text="BEKRÆFT BOOKING" HorizontalAlignment="Center" VerticalAlignment="Center" Width="146" FontWeight="SemiBold" FontSize="16" Foreground="LightGray" TextAlignment="Center"></TextBlock>
                     <TextBlock Tapped="BookingVidere" Visibility="Collapsed" Name="videreTilBekræftIkon" FontFamily="Segoe MDL2 Assets" Text="&#xEBE7;" Margin="0,4,0,0" Width="25" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="20" Foreground="LightGray" TextAlignment="Right" PointerEntered="ChangeCursorTilMedarbejderEnter" PointerExited="ChangeCursorTilMedarbejderExit"></TextBlock>
                 </StackPanel>
-                <Grid Name="AngivTlfGrid" Visibility="Collapsed">
+                <Grid Name="AngivTlfGrid" Visibility="Visible">
                     <Popup Name="LandeKodePopupBorder" IsOpen="False" Width="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,412,34">
                         <Popup.ChildTransitions>
                             <TransitionCollection>
@@ -204,6 +204,7 @@
                         </Popup.ChildTransitions>
                         <Border VerticalAlignment="Center" HorizontalAlignment="Center" Width="112" Height="204" BorderThickness="1" Margin="0,0,0,0" BorderBrush="#FFCDCDCD"/>
                     </Popup>
+                    <TextBlock TextWrapping="Wrap" Width="450" TextAlignment="Center" Text="Indtast venligst mobilnummer. Hvis du tidligere har brugt systemet, så brug samme nummer som sidst." HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,200" Foreground="#FF333333"></TextBlock>
                     <Border VerticalAlignment="Center" HorizontalAlignment="Center" Width="412" Height="34" BorderThickness="1" BorderBrush="#FFCDCDCD"/>
                     <Rectangle Width="1" VerticalAlignment="Center" HorizontalAlignment="Center" Height="32" Margin="0,0,190,0" Fill="Black"/>
                     <Rectangle Name="LandeKodeOpenBack" VerticalAlignment="Center" HorizontalAlignment="Center" Width="110" Height="32" Margin="0,0,300,0" Fill="#FFEEEEEE"/>
@@ -230,7 +231,7 @@
                     <Rectangle Name="VidereTilKontaktOplBackground" Width="100" Height="32" Margin="0,100,0,0" Fill="#FFBDBDBD"></Rectangle>
                     <TextBlock Name="VidereTilKontaktOplTekst" Tapped="BookingVidere" PointerEntered="VidereTilKontaktOplTekst_PointerEntered" PointerExited="VidereTilKontaktOplTekst_PointerExited" Text="VIDERE" TextAlignment="Center" Padding="0,5,0,0" Foreground="White" Width="100" Height="32" Margin="0,100,0,0"></TextBlock>
                 </Grid>
-                <Grid Name="AngivKontakOplGrid" Visibility="Visible" >
+                <Grid Name="AngivKontakOplGrid" Visibility="Collapsed" >
                     <StackPanel Name="kontaktBorders" Orientation="Vertical">
                         <Border Height="34" Width="382" VerticalAlignment="Top" Margin="194,98,0,0" BorderThickness="1" BorderBrush="#FFCDCDCD"/>
                         <Border Height="34" Width="382" VerticalAlignment="Top" Margin="194,6,0,0" BorderThickness="1" BorderBrush="#FFCDCDCD"/>
@@ -276,7 +277,7 @@
                                 <Rectangle Width="1" Height="32" Fill="#FFCDCDCD"></Rectangle>
                                 <Grid Width="279" Background="#FFEAEAEA">
                                     <!--<Rectangle Width="280" Fill="Blue"></Rectangle>-->
-                                    <TextBlock Text="28694800" Padding="10,4,0,0"></TextBlock>
+                                    <TextBlock Name="GivneMobilNr" Text="" Padding="10,4,0,0"></TextBlock>
                                     <HyperlinkButton HorizontalAlignment="Right" Content="SKIFT MOBILNUMMER" Padding="0,0,10,4" Foreground="Black" FontSize="11" Click="HyperlinkButton_Click"/>
                                     <!--<TextBlock Text="28694800" TextAlignment="Right" Padding="0,4,10,0"></TextBlock>-->
                                 </Grid>
