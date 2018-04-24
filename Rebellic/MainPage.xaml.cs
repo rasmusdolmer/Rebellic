@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Text.RegularExpressions;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI;
@@ -75,6 +76,7 @@ namespace Rebellic
             int index = int.Parse(((TextBlock)e.OriginalSource).AccessKey);
 
             GridCursor.Margin = new Thickness(180, 00 + (50 * index), 0, 0);
+            hoverEffect2.Margin = new Thickness(0, 00 + (50 * index), 0, 0);
 
             switch (index)
             {
@@ -265,16 +267,27 @@ namespace Rebellic
         }
 
         #region Properties
-        List<int> cbList = new List<int>();
+        //List<int> cbList = new List<int>();
         string ValgteServices = "";
-        string ValgteServicesBackUp = "";
+        Dictionary<int, string> servicelist = new Dictionary<int, string>();
         #endregion
 
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
-            cbList.Add(int.Parse(((CheckBox)e.OriginalSource).AccessKey));
-            ValgteServicesBackUp = ValgteServices;
-            ValgteServices += ((CheckBox)e.OriginalSource).Content.ToString() + ", ";
+            ValgteServices = "";
+            servicelist.Add(int.Parse(((CheckBox)e.OriginalSource).AccessKey), ((CheckBox)e.OriginalSource).Content.ToString());
+            foreach (var service in servicelist)
+            {
+                if (service.Key > 1)
+                {
+                    ValgteServices += ", " + service.Value;
+                }
+                else
+                {
+                    ValgteServices += service.Value;
+                }
+            }
+            BookingProcessService.Text = ValgteServices;
 
             videreTilMedarIkon.Foreground = new SolidColorBrush(Colors.DodgerBlue);
             videreTilMedarT.Foreground = new SolidColorBrush(Colors.DodgerBlue);
@@ -282,10 +295,15 @@ namespace Rebellic
 
         private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
-            cbList.Remove(int.Parse(((CheckBox)e.OriginalSource).AccessKey));
-            ValgteServices = ValgteServicesBackUp;
+            ValgteServices = "";
+            servicelist.Remove(int.Parse(((CheckBox)e.OriginalSource).AccessKey));
+            foreach (var service in servicelist)
+            {
+                ValgteServices += service.Value;
+            }
+            BookingProcessService.Text = ValgteServices;
 
-            if (cbList.Count == 0)
+            if (servicelist.Count == 0)
             {
                 videreTilMedarIkon.Foreground = new SolidColorBrush(Colors.LightGray);
                 videreTilMedarT.Foreground = new SolidColorBrush(Colors.LightGray);
@@ -299,18 +317,16 @@ namespace Rebellic
             switch (getName)
             {
                 case "videreTilMedarT":
-                    if (cbList.Count > 0)
+                    if (servicelist.Count > 0)
                     {
-                        valgteServices.Text = ValgteServices;
                         VælgService.Visibility = Visibility.Collapsed;
                         VælgMedarbejder.Visibility = Visibility.Visible;
                     }
                     break;
 
                 case "videreTilMedarIkon":
-                    if (cbList.Count > 0)
+                    if (servicelist.Count > 0)
                     {
-                        valgteServices.Text = ValgteServices;
                         VælgService.Visibility = Visibility.Collapsed;
                         VælgMedarbejder.Visibility = Visibility.Visible;
                     }
@@ -326,12 +342,14 @@ namespace Rebellic
                 case "VidereTilTidspunktBackground":
                     VælgTidspunkt.Visibility = Visibility.Visible;
                     VælgMedarbejder.Visibility = Visibility.Collapsed;
-                    valgteMedarbejder.Text = "Beneg Lysgaard";
+                    BookingProcessMedarbejder.Text = "Beneg Lysgaard";
+                    BookingProcessArrow1.Visibility = Visibility.Visible;
                     break;
                 case "VidereTilTidspunktTekst":
                     VælgTidspunkt.Visibility = Visibility.Visible;
                     VælgMedarbejder.Visibility = Visibility.Collapsed;
-                    valgteMedarbejder.Text = "Beneg Lysgaard";
+                    BookingProcessMedarbejder.Text = "Beneg Lysgaard";
+                    BookingProcessArrow1.Visibility = Visibility.Visible;
                     break;
                 case "tilbageTilMedarbejderT":
                     VælgMedarbejder.Visibility = Visibility.Visible;
@@ -342,18 +360,18 @@ namespace Rebellic
                     VælgTidspunkt.Visibility = Visibility.Collapsed;
                     break;
                 case "videreTilKontaktT":
-                    //if (vælgtidborder.Visibility == Visibility.Visible)
-                    //{
-                    VælgTidspunkt.Visibility = Visibility.Collapsed;
-                    AngivKontaktOplysninger.Visibility = Visibility.Visible;
-                    // }  
+                    if (BookingProcessTidspunkt.Text != "")
+                    {
+                        VælgTidspunkt.Visibility = Visibility.Collapsed;
+                        AngivKontaktOplysninger.Visibility = Visibility.Visible;
+                    }
                     break;
                 case "videreTilKontaktIkon":
-                    //if (vælgtidborder.Visibility == Visibility.Visible)
-                    //{
-                    VælgTidspunkt.Visibility = Visibility.Collapsed;
-                    AngivKontaktOplysninger.Visibility = Visibility.Visible;
-                    //}
+                    if (BookingProcessTidspunkt.Text != "")
+                    {
+                        VælgTidspunkt.Visibility = Visibility.Collapsed;
+                        AngivKontaktOplysninger.Visibility = Visibility.Visible;
+                    }
                     break;
                 case "tilbageTilTidT":
                     VælgTidspunkt.Visibility = Visibility.Visible;
@@ -363,14 +381,52 @@ namespace Rebellic
                     VælgTidspunkt.Visibility = Visibility.Visible;
                     AngivKontaktOplysninger.Visibility = Visibility.Collapsed;
                     break;
+                case "videreTilBekræftT":
 
-
+                    BekræftBooking.Visibility = Visibility.Visible;
+                    AngivKontaktOplysninger.Visibility = Visibility.Collapsed;
+                    break;
+                case "videreTilBekræftIkon":
+                    BekræftBooking.Visibility = Visibility.Visible;
+                    AngivKontaktOplysninger.Visibility = Visibility.Collapsed;
+                    break;
+                case "tilbageTilKontaktT":
+                    BekræftBooking.Visibility = Visibility.Collapsed;
+                    AngivKontaktOplysninger.Visibility = Visibility.Visible;
+                    break;
+                case "tilbageTilKontaktIkon":
+                    BekræftBooking.Visibility = Visibility.Collapsed;
+                    AngivKontaktOplysninger.Visibility = Visibility.Visible;
+                    break;
+                case "VidereTilKontaktOplTekst":
+                    if (kontaktTlfValidate == 0 && KontaktTlf.Text.Length > 0)
+                    {
+                        AngivTlfGrid.Visibility = Visibility.Collapsed;
+                        AngivKontakOplGrid.Visibility = Visibility.Visible;
+                        videreTilBekræftT.Visibility = Visibility.Visible;
+                        videreTilBekræftIkon.Visibility = Visibility.Visible;
+                        GivneMobilNr.Text = KontaktTlf.Text;
+                        KontaktFødselsdag.MaxYear = DateTime.Today.AddYears(-15);
+                        KontaktFødselsdag.Date = DateTime.Today.AddYears(-15);
+                        if (GivneMobilNr.Text == "28694800")
+                        {
+                            KontaktNavn.Text = "Rasmus Andersen";
+                            KontaktAdresse.Text = "Vildtbaneparken 57";
+                            KontaktPostby.Text = "2635";
+                            KontaktBy.Text = "Ishøj";
+                            KontaktEmail.Text = "rasmusdolmer@gmail.com";
+                            KontaktTlf2.Text = "28694800";
+                            KontaktKøn.Text = "Mand";
+                            //KontaktFødselsdag.Date = 
+                        }
+                    }
+                    break;
             }
         }
 
         private void ChangeCursorTilMedarbejderEnter(object sender, PointerRoutedEventArgs e)
         {
-            if (cbList.Count != 0)
+            if (servicelist.Count != 0)
             {
                 Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Hand, 1);
             }
@@ -422,29 +478,96 @@ namespace Rebellic
                 InfoPopupBackground.Fill = new SolidColorBrush(Color.FromArgb(230, 255, 255, 255));
             }
         }
-
+        List<TextBlock> tblist = new List<TextBlock>();
         private void selectDate_DateChanged(object sender, DatePickerValueChangedEventArgs e)
         {
+            int count = 1;
             #region Ledigetider
-            List<string> LedigeTider = new List<string>();
-            LedigeTider.Add("04/24/2018 11:00:00.00");
-            LedigeTider.Add("04/24/2018 12:00:00.00");
-            LedigeTider.Add("04/24/2018 13:00:00.00");
-            LedigeTider.Add("04/24/2018 14:00:00.00");
-            LedigeTider.Add("04/24/2018 15:00:00.00");
-            LedigeTider.Add("04/24/2018 16:00:00.00");
-            LedigeTider.Add("04/24/2018 17:00:00.00");
-            LedigeTider.Add("04/24/2018 18:00:00.00");
+            List<DateTime> LedigeTiderMedDato = new List<DateTime>();
+            LedigeTiderMedDato.Add(Convert.ToDateTime("04/25/2018 19:00:00.00"));
+            LedigeTiderMedDato.Add(Convert.ToDateTime("04/25/2018 20:00:00.00"));
+            LedigeTiderMedDato.Add(Convert.ToDateTime("04/24/2018 11:00:00.00"));
+            LedigeTiderMedDato.Add(Convert.ToDateTime("04/24/2018 12:00:00.00"));
+            LedigeTiderMedDato.Add(Convert.ToDateTime("04/24/2018 13:00:00.00"));
+            LedigeTiderMedDato.Add(Convert.ToDateTime("04/24/2018 14:00:00.00"));
+            LedigeTiderMedDato.Add(Convert.ToDateTime("04/24/2018 15:00:00.00"));
+            LedigeTiderMedDato.Add(Convert.ToDateTime("04/24/2018 16:00:00.00"));
+            LedigeTiderMedDato.Add(Convert.ToDateTime("04/24/2018 17:00:00.00"));
+            LedigeTiderMedDato.Add(Convert.ToDateTime("04/24/2018 18:00:00.00"));
+            LedigeTiderMedDato.Add(Convert.ToDateTime("04/24/2018 19:00:00.00"));
+            LedigeTiderMedDato.Add(Convert.ToDateTime("04/24/2018 20:00:00.00"));
+            LedigeTiderMedDato.Add(Convert.ToDateTime("04/24/2018 21:00:00.00"));
+            LedigeTiderMedDato.Add(Convert.ToDateTime("04/24/2018 22:00:00.00"));
 
-            List<string> BackUp = new List<string>();
+            List<string> LedigeTiderPåValgteDato = new List<string>();
             #endregion
-
-            foreach (var tid in LedigeTider)
+            string getdate = selectDate.Date.Date.ToString();
+            LedigeTiderPåValgteDato.Clear();
+            foreach (var tid in LedigeTiderMedDato)
             {
-                if (true)
+                if (tid.Date.Date.ToString() == getdate)
                 {
-
+                    LedigeTiderPåValgteDato.Add(tid.TimeOfDay.ToString());
                 }
+            }
+            if (LedigeTiderPåValgteDato.Count > 1)
+            {
+                selectTid.Children.Clear();
+
+                foreach (var tid in LedigeTiderPåValgteDato)
+                {
+                    Grid TidGrid = new Grid();
+                    TidGrid.Name = "TidGrid" + count;
+                    TidGrid.AccessKey = count.ToString();
+                    TidGrid.Width = 100;
+                    TidGrid.Height = 32;
+                    TidGrid.HorizontalAlignment = HorizontalAlignment.Left;
+                    TidGrid.VerticalAlignment = VerticalAlignment.Top;
+                    TidGrid.Background = new SolidColorBrush(Colors.White);
+                    TidGrid.Margin = new Thickness(5, 0, 0, 0);
+                    TidGrid.PointerEntered += VælgTidEnter;
+                    TidGrid.PointerExited += VælgTidExit;
+                    TidGrid.Tapped += VælgTidTapped;
+                    if (count <= 4)
+                    {
+                        selectTid.Children.Add(TidGrid);
+                    }
+                    if (count >= 5 && count <= 8)
+                    {
+                        selectTid2.Children.Add(TidGrid);
+                    }
+                    if (count >= 9 && count <= 12)
+                    {
+                        selectTid3.Children.Add(TidGrid);
+                    }
+
+                    TextBlock TidTekst = new TextBlock();
+                    TidTekst.Name = "tb-" + tid;
+                    TidTekst.AccessKey = count.ToString();
+                    TidTekst.Text = tid.ToString();
+                    TidTekst.Width = 100;
+                    TidTekst.Height = 32;
+                    TidTekst.Padding = new Thickness(0, 6, 0, 0);
+                    TidTekst.Foreground = new SolidColorBrush(Color.FromArgb(255, 51, 51, 51));
+                    TidTekst.TextAlignment = TextAlignment.Center;
+                    TidTekst.PointerEntered += VælgTidEnter;
+                    TidTekst.PointerExited += VælgTidExit;
+                    TidTekst.Tapped += VælgTidTapped;
+                    TidGrid.Children.Add(TidTekst);
+                    tblist.Add(TidTekst);
+
+                    Border TidBorder = new Border();
+                    TidBorder.Width = 100;
+                    TidBorder.Height = 32;
+                    TidBorder.BorderThickness = new Thickness(1);
+                    TidBorder.BorderBrush = new SolidColorBrush(Colors.LightGray);
+                    TidGrid.Children.Add(TidBorder);
+                    count++;
+                }
+            }
+            else
+            {
+                selectTid.Children.Clear();
             }
 
             videreTilKontaktT.Foreground = new SolidColorBrush(Colors.LightGray);
@@ -461,32 +584,102 @@ namespace Rebellic
         }
         private void VælgTidTapped(object sender, TappedRoutedEventArgs e)
         {
+            foreach (var textblock in tblist)
+            {
+                textblock.FontWeight = FontWeights.Normal;
+            }
+
             int index = int.Parse(((TextBlock)e.OriginalSource).AccessKey);
+            string name = ((TextBlock)e.OriginalSource).Name;
+            TextBlock tb = (TextBlock)FindName(name);
+            tb.FontWeight = FontWeights.SemiBold;
 
-            //vælgtidborder.Visibility = Visibility.Visible;
-            //vælgtidborder.Margin = new Thickness(63 + (index * 221), 100, 0, 0);
-
-            valgteTid.Text = ((TextBlock)e.OriginalSource).Text;
-            valgteTidTekst.Text = ((TextBlock)e.OriginalSource).Text;
-
+            BookingProcessTidspunkt.Text = selectDate.Date.Date.ToString("dd/MM yyyy") + " kl: " + ((TextBlock)e.OriginalSource).Text;
+            BookingProcessArrow2.Visibility = Visibility.Visible;
             videreTilKontaktT.Foreground = new SolidColorBrush(Colors.DodgerBlue);
             videreTilKontaktIkon.Foreground = new SolidColorBrush(Colors.DodgerBlue);
         }
 
         private void ChangeCursorTilKontaktEnter(object sender, PointerRoutedEventArgs e)
         {
-            //if (vælgtidborder.Visibility == Visibility.Visible)
-            //{
-            Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Hand, 1);
-            //}          
+            if (BookingProcessTidspunkt.Text != "")
+            {
+                Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Hand, 1);
+            }
         }
 
         private void ChangeCursorTilKontaktExit(object sender, PointerRoutedEventArgs e)
         {
-            //if (vælgtidborder.Visibility == Visibility.Visible)
-            //{
             Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 2);
-            //}
+        }
+
+        private void LandeKodeOpen_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            if (LandeKodePopup.IsOpen)
+            {
+                LandeKodePopupBorder.IsOpen = false;
+                LandeKodePopup.IsOpen = false;
+                LandeKodeOpenBack.Fill = new SolidColorBrush(Color.FromArgb(179, 255, 255, 255));
+                LandeKodeOpenIkonDown.Visibility = Visibility.Visible;
+                LandeKodeOpenIkonUp.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                LandeKodePopupBorder.IsOpen = true;
+                LandeKodePopup.IsOpen = true;
+                LandeKodeOpenBack.Fill = new SolidColorBrush(Color.FromArgb(255, 255, 255, 255));
+                LandeKodeOpenIkonDown.Visibility = Visibility.Collapsed;
+                LandeKodeOpenIkonUp.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void LandeKodeOpen_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Hand, 1);
+            LandeKodeOpenBack.Fill = new SolidColorBrush(Color.FromArgb(255, 255, 255, 255));
+        }
+
+        private void LandeKodeOpen_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            if (!LandeKodePopup.IsOpen)
+            {
+                LandeKodeOpenBack.Fill = new SolidColorBrush(Color.FromArgb(179, 255, 255, 255));
+            }
+            Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 2);
+        }
+        int kontaktTlfValidate = 0;
+        private void KontaktTlf_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            kontaktTlfValidate = Regex.Matches(KontaktTlf.Text, @"[a-åA-Å]").Count;
+            if (KontaktTlf.Text == "" || kontaktTlfValidate > 0)
+            {
+                VidereTilKontaktOplBackground.Fill = new SolidColorBrush(Color.FromArgb(255, 189, 189, 189));
+            }
+            else if (kontaktTlfValidate == 0)
+            {
+                VidereTilKontaktOplBackground.Fill = new SolidColorBrush(Colors.DodgerBlue);
+            }
+        }
+
+        private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
+        {
+            AngivKontakOplGrid.Visibility = Visibility.Collapsed;
+            AngivTlfGrid.Visibility = Visibility.Visible;
+            videreTilBekræftT.Visibility = Visibility.Collapsed;
+            videreTilBekræftIkon.Visibility = Visibility.Collapsed;
+        }
+
+        private void VidereTilKontaktOplTekst_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            if (KontaktTlf.Text != "" && kontaktTlfValidate == 0)
+            {
+                Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Hand, 1);
+            }
+        }
+
+        private void VidereTilKontaktOplTekst_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 2);
         }
     }
 }
