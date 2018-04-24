@@ -113,6 +113,7 @@
   <ItemGroup>
     <Content Include="Assets\260561.jpg" />
     <Content Include="Assets\defaultPic.jpg" />
+    <Content Include="Assets\dk.png" />
     <Content Include="Assets\down.png" />
     <Content Include="Assets\ic_close_black_24dp_1x.png" />
     <Content Include="Assets\ic_menu_white_24dp_1x.png" />

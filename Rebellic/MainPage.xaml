@@ -6,7 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-
+<!---->
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="Assets/Wood-Wallpaper.jpg"/>
@@ -34,171 +34,310 @@
                 </Grid>
             </StackPanel>
         </Popup>
-        <Grid Name="VælgService" Width="900" Visibility="Visible" Height="560" Background="#D8FFFFFF" Margin="0,0,0,20" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Height="60" Background="White" Padding="9 0">
-                <TextBlock Text="VÆLG SERVICE" Width="675" HorizontalAlignment="Center" Padding="207,0,0,0" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="24" Foreground="#FF333333" TextAlignment="Center" FontFamily="Segoe UI"></TextBlock>
-                <TextBlock Tapped="BookingVidere" Name="videreTilMedarT" Text="VÆLG MEDARBEJDER" HorizontalAlignment="Center" VerticalAlignment="Center" Width="165" FontWeight="SemiBold" FontSize="16" Foreground="LightGray" TextAlignment="Center" PointerEntered="ChangeCursorTilMedarbejderEnter" PointerExited="ChangeCursorTilMedarbejderExit"></TextBlock>
-                <TextBlock Tapped="BookingVidere" Name="videreTilMedarIkon" FontFamily="Segoe MDL2 Assets" Text="&#xEBE7;" Margin="0,4,0,0" Width="25" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="20" Foreground="LightGray" TextAlignment="Right" PointerEntered="ChangeCursorTilMedarbejderEnter" PointerExited="ChangeCursorTilMedarbejderExit"></TextBlock>
-            </StackPanel>
-            <Rectangle HorizontalAlignment="Center" Width="715" Height="1" Margin="185,0,0,439" Fill="#2F000000"></Rectangle>
-            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Height="500" Width="185" Margin="0,0,0,-59" Background="White" >
-                <Grid Height="500">
-                    <Rectangle Name="hoverEffect" VerticalAlignment="Top" HorizontalAlignment="Left" Height="50" Width="184" Fill="#0C000000" Visibility="Collapsed"/>
-                    <StackPanel Orientation="Vertical" VerticalAlignment="Top" Margin="0 0">
-                        <TextBlock Name="tb0" AccessKey="0" Text="ØRE" Width="184" HorizontalAlignment="Left" Height="50" TextAlignment="Left" Padding="10 15" Foreground="#FF2196F3" Tapped="ChangeTab" PointerEntered="UIElement_OnPointerEntered" PointerExited="UIElement_OnPointerExited"/>
-                        <TextBlock Name="tb1" AccessKey="1" Text="ANSIGT" Width="184" HorizontalAlignment="Left" Height="50" TextAlignment="Left" Padding="10 15" Foreground="#FF2196F3" Tapped="ChangeTab" PointerEntered="UIElement_OnPointerEntered" PointerExited="UIElement_OnPointerExited"/>
-                        <TextBlock Name="tb2" AccessKey="2" Text="LÆBE" Width="184" HorizontalAlignment="Left" Height="50" TextAlignment="Left" Padding="10 15" Foreground="#FF2196F3" Tapped="ChangeTab" PointerEntered="UIElement_OnPointerEntered" PointerExited="UIElement_OnPointerExited"/>
-                        <TextBlock Name="tb3" AccessKey="3" Text="ORAL PIERCING" Width="184" HorizontalAlignment="Left" Height="50" TextAlignment="Left" Padding="10 15" Foreground="#FF2196F3" Tapped="ChangeTab" PointerEntered="UIElement_OnPointerEntered" PointerExited="UIElement_OnPointerExited"/>
-                        <TextBlock Name="tb4" AccessKey="4" Text="KROP" Width="184" HorizontalAlignment="Left" Height="50" TextAlignment="Left" Padding="10 15" Foreground="#FF2196F3" Tapped="ChangeTab" PointerEntered="UIElement_OnPointerEntered" PointerExited="UIElement_OnPointerExited"/>
-                        <TextBlock Name="tb5" AccessKey="5" Text="INTIM FOR LADIES" Width="184" HorizontalAlignment="Left" Height="50" TextAlignment="Left" Padding="10 15" Foreground="#FF2196F3" Tapped="ChangeTab" PointerEntered="UIElement_OnPointerEntered" PointerExited="UIElement_OnPointerExited"/>
-                        <TextBlock Name="tb6" AccessKey="6" Text="INTIM FOR GENTLEMEN" Width="184" HorizontalAlignment="Left" Height="50" TextAlignment="Left" Padding="10 15" Foreground="#FF2196F3" Tapped="ChangeTab" PointerEntered="UIElement_OnPointerEntered" PointerExited="UIElement_OnPointerExited"/>
-                        <TextBlock Name="tb7" AccessKey="7" Text="OVERFLADE" Width="184" HorizontalAlignment="Left" Height="50" TextAlignment="Left" Padding="10 15" Foreground="#FF2196F3" Tapped="ChangeTab" PointerEntered="UIElement_OnPointerEntered" PointerExited="UIElement_OnPointerExited"/>
-                        <TextBlock Name="tb8" AccessKey="8" Text="ANDET" Width="184" HorizontalAlignment="Left" Height="50" TextAlignment="Left" Padding="10 15" Foreground="#FF2196F3" Tapped="ChangeTab" PointerEntered="UIElement_OnPointerEntered" PointerExited="UIElement_OnPointerExited"/>
-                        <TextBlock Name="tb9" AccessKey="9" Text="STRETCHING" Width="184" HorizontalAlignment="Left" Height="50" TextAlignment="Left" Padding="10 15" Foreground="#FF2196F3" Tapped="ChangeTab" PointerEntered="UIElement_OnPointerEntered" PointerExited="UIElement_OnPointerExited"/>
-                    </StackPanel>
-                    <Rectangle HorizontalAlignment="Left" Width="1" Height="500" Margin="184,0,0,0" Fill="#2F000000"></Rectangle>
-                    <Grid x:Name="GridCursor" Width="5" Height="50" Background="#FF2196F3" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="180,0,0,0"></Grid>
-                </Grid>
-            </StackPanel>
-            <Grid Name="Products">
-                <ScrollViewer Name="ProductContent1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="715" Height="500" Margin="185,0,0,-59" Padding="25 15" HorizontalScrollMode="Disabled" VerticalScrollMode="Enabled" Background="#66FFFFFF">
-                    <StackPanel>
-                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
-                            <CheckBox Content="Anti Helix" FontWeight="SemiBold" Width="380" AccessKey="1" VerticalAlignment="Center" PointerEntered="ChangeCursorEnter" PointerExited="ChangeCursorExit" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
-                            <TextBlock Text="30 minutter" Width="150" VerticalAlignment="Center" Foreground="#FF6B6E6F" FontWeight="SemiBold" TextAlignment="Right"></TextBlock>
-                            <TextBlock Text="249,00 kr." Width="134" VerticalAlignment="Center" Foreground="DodgerBlue" FontWeight="SemiBold" TextAlignment="Right"></TextBlock>
-                        </StackPanel>
-                        <TextBlock Text="Anti helix piercingen sidder modsat helix piercingen, i den del af øret tættest på hovedet. Kun forsiden af en anti helix piercing vil være synlig når man ser øret forfra, da resten af smykket vil være gemt bag folden i øret." TextWrapping="Wrap" Foreground="#D8000000" Padding="0 5"></TextBlock>
-                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
-                            <CheckBox Content="Anti Tragus" FontWeight="SemiBold" Width="380" AccessKey="1" VerticalAlignment="Center" PointerEntered="ChangeCursorEnter" PointerExited="ChangeCursorExit" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
-                            <TextBlock Text="30 minutter" Width="150" VerticalAlignment="Center" Foreground="#FF6B6E6F" FontWeight="SemiBold" TextAlignment="Right"></TextBlock>
-                            <TextBlock Text="249,00 kr." Width="134" VerticalAlignment="Center" Foreground="DodgerBlue" FontWeight="SemiBold" TextAlignment="Right"></TextBlock>
-                        </StackPanel>
-                        <TextBlock Text="Anti tragus piercingen sidder i den del af brusken som starter lige over øreflippen. Der er tale om den lille 'flap' som sidder over for tragus, deraf navnet anti tragus." TextWrapping="Wrap" Foreground="#D8000000" Padding="0 5"></TextBlock>
-                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
-                            <CheckBox VerticalAlignment="Center"/>
-                            <TextBlock Text="Anti Lonbe" Width="350" Margin="-90,0,0,0" VerticalAlignment="Center" FontWeight="SemiBold" ></TextBlock>
-                            <TextBlock Text="30 minutter" Width="150" VerticalAlignment="Center" Foreground="#FF6B6E6F" FontWeight="SemiBold" TextAlignment="Right"></TextBlock>
-                            <TextBlock Text="249,00 kr." Width="134" VerticalAlignment="Center" Foreground="DodgerBlue" FontWeight="SemiBold" TextAlignment="Right"></TextBlock>
-                        </StackPanel>
-                        <TextBlock Text="Anti lobe sidder i det lille stykke tid som forbinder hovedet og øreflippen. Det ligner altså en øreflipspiercing med placering tæt på ansigtet." TextWrapping="Wrap" Foreground="#D8000000" Padding="0 5"></TextBlock>
-                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
-                            <CheckBox VerticalAlignment="Center"/>
-                            <TextBlock Text="Anti Helix" Width="350" Margin="-90,0,0,0" VerticalAlignment="Center" FontWeight="SemiBold" ></TextBlock>
-                            <TextBlock Text="30 minutter" Width="150" VerticalAlignment="Center" Foreground="#FF6B6E6F" FontWeight="SemiBold" TextAlignment="Right"></TextBlock>
-                            <TextBlock Text="249,00 kr." Width="134" VerticalAlignment="Center" Foreground="DodgerBlue" FontWeight="SemiBold" TextAlignment="Right"></TextBlock>
-                        </StackPanel>
-                        <TextBlock Text="Anti helix piercingen sidder modsat helix piercingen, i den del af øret tættest på hovedet. Kun forsiden af en anti helix piercing vil være synlig når man ser øret forfra, da resten af smykket vil være gemt bag folden i øret." TextWrapping="Wrap" Foreground="#D8000000" Padding="0 5"></TextBlock>
-                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
-                            <CheckBox VerticalAlignment="Center"/>
-                            <TextBlock Text="Anti Tragus" Width="350" Margin="-90,0,0,0" VerticalAlignment="Center" FontWeight="SemiBold" ></TextBlock>
-                            <TextBlock Text="30 minutter" Width="150" VerticalAlignment="Center" Foreground="#FF6B6E6F" FontWeight="SemiBold" TextAlignment="Right" FontFamily="Segoe UI"></TextBlock>
-                            <TextBlock Text="249,00 kr." Width="134" VerticalAlignment="Center" Foreground="DodgerBlue" FontWeight="SemiBold" TextAlignment="Right"></TextBlock>
-                        </StackPanel>
-                        <TextBlock Text="Anti tragus piercingen sidder i den del af brusken som starter lige over øreflippen. Der er tale om den lille 'flap' som sidder over for tragus, deraf navnet anti tragus." TextWrapping="Wrap" Foreground="#D8000000" Padding="0 5"></TextBlock>
-                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
-                            <CheckBox VerticalAlignment="Center"/>
-                            <TextBlock Text="Anti Lonbe" Width="350" Margin="-90,0,0,0" VerticalAlignment="Center" FontWeight="SemiBold" ></TextBlock>
-                            <TextBlock Text="30 minutter" Width="150" VerticalAlignment="Center" Foreground="#FF6B6E6F" FontWeight="SemiBold" TextAlignment="Right"></TextBlock>
-                            <TextBlock Text="249,00 kr." Width="134" VerticalAlignment="Center" Foreground="DodgerBlue" FontWeight="SemiBold" TextAlignment="Right"></TextBlock>
-                        </StackPanel>
-                        <TextBlock Text="Anti lobe sidder i det lille stykke tid som forbinder hovedet og øreflippen. Det ligner altså en øreflipspiercing med placering tæt på ansigtet." TextWrapping="Wrap" Foreground="#D8000000" Padding="0 5"></TextBlock>
-                    </StackPanel>
-                </ScrollViewer>
-                <ScrollViewer Name="ProductContent2" VerticalAlignment="Center" HorizontalAlignment="Center" Width="715" Height="500" Margin="185,0,0,-59" Padding="25 15" HorizontalScrollMode="Disabled" VerticalScrollMode="Enabled" Visibility="Collapsed" Background="#66FFFFFF">
-                    <StackPanel>
-                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
-                            <CheckBox VerticalAlignment="Center"/>
-                            <TextBlock Text="Anti Helix" Width="350" Margin="-90,0,0,0" VerticalAlignment="Center" FontWeight="SemiBold" ></TextBlock>
-                            <TextBlock Text="30 minutter" Width="150" VerticalAlignment="Center" Foreground="#FF6B6E6F" FontWeight="SemiBold" TextAlignment="Right"></TextBlock>
-                            <TextBlock Text="249,00 kr." Width="134" VerticalAlignment="Center" Foreground="DodgerBlue" FontWeight="SemiBold" TextAlignment="Right"></TextBlock>
-                        </StackPanel>
-                        <TextBlock Text="Anti helix piercingen sidder modsat helix piercingen, i den del af øret tættest på hovedet. Kun forsiden af en anti helix piercing vil være synlig når man ser øret forfra, da resten af smykket vil være gemt bag folden i øret." TextWrapping="Wrap" Foreground="#D8000000" Padding="0 5"></TextBlock>
-                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
-                            <CheckBox VerticalAlignment="Center"/>
-                            <TextBlock Text="Anti Tragus" Width="350" Margin="-90,0,0,0" VerticalAlignment="Center" FontWeight="SemiBold" ></TextBlock>
-                            <TextBlock Text="30 minutter" Width="150" VerticalAlignment="Center" Foreground="#FF6B6E6F" FontWeight="SemiBold" TextAlignment="Right"></TextBlock>
-                            <TextBlock Text="249,00 kr." Width="134" VerticalAlignment="Center" Foreground="DodgerBlue" FontWeight="SemiBold" TextAlignment="Right"></TextBlock>
-                        </StackPanel>
-                        <TextBlock Text="Anti tragus piercingen sidder i den del af brusken som starter lige over øreflippen. Der er tale om den lille 'flap' som sidder over for tragus, deraf navnet anti tragus." TextWrapping="Wrap" Foreground="#D8000000" Padding="0 5"></TextBlock>
-                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
-                            <CheckBox VerticalAlignment="Center"/>
-                            <TextBlock Text="Anti Lonbe" Width="350" Margin="-90,0,0,0" VerticalAlignment="Center" FontWeight="SemiBold" ></TextBlock>
-                            <TextBlock Text="30 minutter" Width="150" VerticalAlignment="Center" Foreground="#FF6B6E6F" FontWeight="SemiBold" TextAlignment="Right"></TextBlock>
-                            <TextBlock Text="249,00 kr." Width="134" VerticalAlignment="Center" Foreground="DodgerBlue" FontWeight="SemiBold" TextAlignment="Right"></TextBlock>
-                        </StackPanel>
-                        <TextBlock Text="Anti lobe sidder i det lille stykke tid som forbinder hovedet og øreflippen. Det ligner altså en øreflipspiercing med placering tæt på ansigtet." TextWrapping="Wrap" Foreground="#D8000000" Padding="0 5"></TextBlock>
-                    </StackPanel>
-                </ScrollViewer>
-                <Grid Name="ProductContent3" VerticalAlignment="Center" HorizontalAlignment="Center" Width="715" Height="500" Margin="185,0,0,-59" Visibility="Collapsed" Background="#66FFFFFF"/>
-                <Grid Name="ProductContent4" VerticalAlignment="Center" HorizontalAlignment="Center" Width="715" Height="500" Margin="185,0,0,-59" Visibility="Collapsed" Background="#66FFFFFF"/>
-                <Grid Name="ProductContent5" VerticalAlignment="Center" HorizontalAlignment="Center" Width="715" Height="500" Margin="185,0,0,-59" Visibility="Collapsed" Background="#66FFFFFF"/>
-                <Grid Name="ProductContent6" VerticalAlignment="Center" HorizontalAlignment="Center" Width="715" Height="500" Margin="185,0,0,-59" Visibility="Collapsed" Background="#66FFFFFF"/>
-                <Grid Name="ProductContent7" VerticalAlignment="Center" HorizontalAlignment="Center" Width="715" Height="500" Margin="185,0,0,-59" Visibility="Collapsed" Background="#66FFFFFF"/>
-                <Grid Name="ProductContent8" VerticalAlignment="Center" HorizontalAlignment="Center" Width="715" Height="500" Margin="185,0,0,-59" Visibility="Collapsed" Background="#66FFFFFF"/>
-                <Grid Name="ProductContent9" VerticalAlignment="Center" HorizontalAlignment="Center" Width="715" Height="500" Margin="185,0,0,-59" Visibility="Collapsed" Background="#66FFFFFF"/>
-                <Grid Name="ProductContent10" VerticalAlignment="Center" HorizontalAlignment="Center" Width="715" Height="500" Margin="185,0,0,-59" Visibility="Collapsed" Background="#66FFFFFF"/>
-            </Grid>
-        </Grid>
-        <Grid Name="VælgMedarbejder" Visibility="Collapsed" Width="900" Height="560" Background="#D8FFFFFF" Margin="0,0,0,20" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Height="60" Background="White" Padding="9 0">
-                <TextBlock Tapped="BookingVidere" Name="tilbageTilServiceIkon" FontFamily="Segoe MDL2 Assets" Text="&#xEC52;" Margin="0,4,0,0" Width="25" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="20" Foreground="#FFFF3636" TextAlignment="Right" PointerEntered="ChangeCursorTilMedarbejderEnter" PointerExited="ChangeCursorTilMedarbejderExit"></TextBlock>
-                <TextBlock Tapped="BookingVidere" Name="tilbageTilServiceT" Text="VÆLG SERVICE" HorizontalAlignment="Center" VerticalAlignment="Center" Width="115" FontWeight="SemiBold" FontSize="16" Foreground="#FFFF3636" TextAlignment="Center" PointerEntered="ChangeCursorTilMedarbejderEnter" PointerExited="ChangeCursorTilMedarbejderExit"></TextBlock>
-                <TextBlock Text="VÆLG MEDARBEJDER" Width="485" HorizontalAlignment="Center" Padding="110,0,0,0" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="24" Foreground="#FF333333" TextAlignment="Center" FontFamily="Segoe UI"></TextBlock>
-                <TextBlock Tapped="BookingVidere" Name="videreTilTidT" Text="NÆSTE SKRIDT: VÆLG TIDSPUNKT" HorizontalAlignment="Center" VerticalAlignment="Center" Width="250" FontWeight="SemiBold" FontSize="16" Foreground="LightGray" TextAlignment="Center"></TextBlock>
-                <!--<TextBlock Tapped="BookingVidere" Name="videreTilTidIkon" FontFamily="Segoe MDL2 Assets" Text="&#xEBE7;" Margin="0,4,0,0" Width="25" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="20" Foreground="LightGray" TextAlignment="Right" PointerEntered="ChangeCursorTilMedarbejderEnter" PointerExited="ChangeCursorTilMedarbejderExit"></TextBlock>-->
-            </StackPanel>
-            <Rectangle HorizontalAlignment="Center" Width="900" Height="1" Margin="0,0,0,439" Fill="#2F000000"></Rectangle>
-            <TextBlock Name="valgteServicesTitle" Text="Valgte Services: " TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,70,0,0" FontWeight="SemiBold"></TextBlock>
-            <TextBlock Name="valgteServices" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="215,70,0,0"></TextBlock>
-            <StackPanel Margin="0,60,0,0" Padding="100 40">
-                <StackPanel AccessKey="1" Name="Medarbejder" Padding="10 10" Background="White" Orientation="Horizontal" Margin="0,0,0,15">
-                    <Image Source="Assets/defaultPic.jpg" Width="50" HorizontalAlignment="Left" VerticalAlignment="Top"></Image>
-                    <StackPanel Width="530" Padding="10,0,0,0">
-                        <TextBlock Text="Beneg Lysgaard" FontWeight="SemiBold" Foreground="DodgerBlue" FontSize="17" Margin="0,-7,0,0"></TextBlock>
-                        <TextBlock Text="Professionel Body Piercer" FontStyle="Oblique" Margin="0,0,0,10"></TextBlock>
-                        <TextBlock Text="Udd. Professionel Body Piercet siden 2010 startet i lærer som body piercer i 2008. - 2010." TextWrapping="Wrap" Width="400" HorizontalAlignment="Left"></TextBlock>
-                    </StackPanel>
-                    <Rectangle Tapped="BookingVidere" Name="VidereTilTidspunktBackground" Width="100" Fill="#CC448AFF" Height="30" VerticalAlignment="Top" PointerEntered="Medarbejder_PointerEntered" PointerExited="Medarbejder_PointerExited"></Rectangle>
-                    <TextBlock Tapped="BookingVidere" Name="VidereTilTidspunktTekst" Text="VÆLG" Margin="-100,0,0,59" Padding="0,4,0,0" Height="30" Width="100" TextAlignment="Center" Foreground="White" PointerEntered="Medarbejder_PointerEntered" PointerExited="Medarbejder_PointerExited"></TextBlock>
+        <Grid>
+            <Grid Name="VælgService" Width="900" Visibility="Collapsed" Height="560" Background="#D8FFFFFF" Margin="0,0,0,100" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Height="60" Background="White" Padding="9 0">
+                    <TextBlock Text="VÆLG SERVICE" Width="675" HorizontalAlignment="Center" Padding="207,0,2,0" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="24" Foreground="#FF333333" TextAlignment="Center" FontFamily="Segoe UI"></TextBlock>
+                    <TextBlock Tapped="BookingVidere" Name="videreTilMedarT" Text="VÆLG MEDARBEJDER" HorizontalAlignment="Center" VerticalAlignment="Center" Width="165" FontWeight="SemiBold" FontSize="16" Foreground="LightGray" TextAlignment="Center" PointerEntered="ChangeCursorTilMedarbejderEnter" PointerExited="ChangeCursorTilMedarbejderExit"></TextBlock>
+                    <TextBlock Tapped="BookingVidere" Name="videreTilMedarIkon" FontFamily="Segoe MDL2 Assets" Text="&#xEBE7;" Margin="0,4,0,0" Width="25" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="20" Foreground="LightGray" TextAlignment="Right" PointerEntered="ChangeCursorTilMedarbejderEnter" PointerExited="ChangeCursorTilMedarbejderExit"></TextBlock>
                 </StackPanel>
+                <Rectangle HorizontalAlignment="Center" Width="900" Height="1" Margin="0,0,0,439" Fill="#19000000"></Rectangle>
+                <Rectangle HorizontalAlignment="Center" Width="900" Height="1" Margin="0,559,0,0" Fill="#19000000"></Rectangle>
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Height="500" Width="185" Margin="0,0,0,-59" Background="#66FFFFFF" >
+                    <Grid Height="500">
+                        <Rectangle Name="hoverEffect" VerticalAlignment="Top" HorizontalAlignment="Left" Height="50" Width="184" Fill="White" Visibility="Collapsed"/>
+                        <Rectangle Name="hoverEffect2" VerticalAlignment="Top" HorizontalAlignment="Left" Height="50" Width="184" Fill="White" Visibility="Visible"/>
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Top" Margin="0 0">
+                            <TextBlock Name="tb0" AccessKey="0" Text="ØRE" Width="184" HorizontalAlignment="Left" Height="50" TextAlignment="Left" Padding="10 15" Foreground="#FF2196F3" Tapped="ChangeTab" PointerEntered="UIElement_OnPointerEntered" PointerExited="UIElement_OnPointerExited"/>
+                            <TextBlock Name="tb1" AccessKey="1" Text="ANSIGT" Width="184" HorizontalAlignment="Left" Height="50" TextAlignment="Left" Padding="10 15" Foreground="#FF2196F3" Tapped="ChangeTab" PointerEntered="UIElement_OnPointerEntered" PointerExited="UIElement_OnPointerExited"/>
+                            <TextBlock Name="tb2" AccessKey="2" Text="LÆBE" Width="184" HorizontalAlignment="Left" Height="50" TextAlignment="Left" Padding="10 15" Foreground="#FF2196F3" Tapped="ChangeTab" PointerEntered="UIElement_OnPointerEntered" PointerExited="UIElement_OnPointerExited"/>
+                            <TextBlock Name="tb3" AccessKey="3" Text="ORAL PIERCING" Width="184" HorizontalAlignment="Left" Height="50" TextAlignment="Left" Padding="10 15" Foreground="#FF2196F3" Tapped="ChangeTab" PointerEntered="UIElement_OnPointerEntered" PointerExited="UIElement_OnPointerExited"/>
+                            <TextBlock Name="tb4" AccessKey="4" Text="KROP" Width="184" HorizontalAlignment="Left" Height="50" TextAlignment="Left" Padding="10 15" Foreground="#FF2196F3" Tapped="ChangeTab" PointerEntered="UIElement_OnPointerEntered" PointerExited="UIElement_OnPointerExited"/>
+                            <TextBlock Name="tb5" AccessKey="5" Text="INTIM FOR LADIES" Width="184" HorizontalAlignment="Left" Height="50" TextAlignment="Left" Padding="10 15" Foreground="#FF2196F3" Tapped="ChangeTab" PointerEntered="UIElement_OnPointerEntered" PointerExited="UIElement_OnPointerExited"/>
+                            <TextBlock Name="tb6" AccessKey="6" Text="INTIM FOR GENTLEMEN" Width="184" HorizontalAlignment="Left" Height="50" TextAlignment="Left" Padding="10 15" Foreground="#FF2196F3" Tapped="ChangeTab" PointerEntered="UIElement_OnPointerEntered" PointerExited="UIElement_OnPointerExited"/>
+                            <TextBlock Name="tb7" AccessKey="7" Text="OVERFLADE" Width="184" HorizontalAlignment="Left" Height="50" TextAlignment="Left" Padding="10 15" Foreground="#FF2196F3" Tapped="ChangeTab" PointerEntered="UIElement_OnPointerEntered" PointerExited="UIElement_OnPointerExited"/>
+                            <TextBlock Name="tb8" AccessKey="8" Text="ANDET" Width="184" HorizontalAlignment="Left" Height="50" TextAlignment="Left" Padding="10 15" Foreground="#FF2196F3" Tapped="ChangeTab" PointerEntered="UIElement_OnPointerEntered" PointerExited="UIElement_OnPointerExited"/>
+                            <TextBlock Name="tb9" AccessKey="9" Text="STRETCHING" Width="184" HorizontalAlignment="Left" Height="50" TextAlignment="Left" Padding="10 15" Foreground="#FF2196F3" Tapped="ChangeTab" PointerEntered="UIElement_OnPointerEntered" PointerExited="UIElement_OnPointerExited"/>
+                        </StackPanel>
+                        <Rectangle HorizontalAlignment="Left" Width="2" Height="500" Margin="184,0,0,0" Fill="#1C000000"></Rectangle>
+                        <Grid x:Name="GridCursor" Width="5" Height="50" Background="#FF2196F3" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="180,0,0,0"></Grid>
+                    </Grid>
+                </StackPanel>
+                <Grid Name="Products">
+                    <ScrollViewer Name="ProductContent1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="715" Height="500" Margin="185,0,0,-59" Padding="25 15" HorizontalScrollMode="Disabled" VerticalScrollMode="Enabled" Background="#66FFFFFF">
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                                <CheckBox Content="Anti Helix" FontWeight="SemiBold" Width="380" AccessKey="1" VerticalAlignment="Center" PointerEntered="ChangeCursorEnter" PointerExited="ChangeCursorExit" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
+                                <TextBlock Text="30 minutter" Width="150" VerticalAlignment="Center" Foreground="#FF6B6E6F" FontWeight="SemiBold" TextAlignment="Right"></TextBlock>
+                                <TextBlock Text="249,00 kr." Width="134" VerticalAlignment="Center" Foreground="DodgerBlue" FontWeight="SemiBold" TextAlignment="Right"></TextBlock>
+                            </StackPanel>
+                            <TextBlock Text="Anti helix piercingen sidder modsat helix piercingen, i den del af øret tættest på hovedet. Kun forsiden af en anti helix piercing vil være synlig når man ser øret forfra, da resten af smykket vil være gemt bag folden i øret." TextWrapping="Wrap" Foreground="#D8000000" Padding="0 5"></TextBlock>
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                                <CheckBox Content="Anti Tragus" FontWeight="SemiBold" Width="380" AccessKey="2" VerticalAlignment="Center" PointerEntered="ChangeCursorEnter" PointerExited="ChangeCursorExit" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
+                                <TextBlock Text="30 minutter" Width="150" VerticalAlignment="Center" Foreground="#FF6B6E6F" FontWeight="SemiBold" TextAlignment="Right"></TextBlock>
+                                <TextBlock Text="249,00 kr." Width="134" VerticalAlignment="Center" Foreground="DodgerBlue" FontWeight="SemiBold" TextAlignment="Right"></TextBlock>
+                            </StackPanel>
+                            <TextBlock Text="Anti tragus piercingen sidder i den del af brusken som starter lige over øreflippen. Der er tale om den lille 'flap' som sidder over for tragus, deraf navnet anti tragus." TextWrapping="Wrap" Foreground="#D8000000" Padding="0 5"></TextBlock>
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                                <CheckBox VerticalAlignment="Center"/>
+                                <TextBlock Text="Anti Lonbe" Width="350" Margin="-90,0,0,0" VerticalAlignment="Center" FontWeight="SemiBold" ></TextBlock>
+                                <TextBlock Text="30 minutter" Width="150" VerticalAlignment="Center" Foreground="#FF6B6E6F" FontWeight="SemiBold" TextAlignment="Right"></TextBlock>
+                                <TextBlock Text="249,00 kr." Width="134" VerticalAlignment="Center" Foreground="DodgerBlue" FontWeight="SemiBold" TextAlignment="Right"></TextBlock>
+                            </StackPanel>
+                            <TextBlock Text="Anti lobe sidder i det lille stykke tid som forbinder hovedet og øreflippen. Det ligner altså en øreflipspiercing med placering tæt på ansigtet." TextWrapping="Wrap" Foreground="#D8000000" Padding="0 5"></TextBlock>
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                                <CheckBox VerticalAlignment="Center"/>
+                                <TextBlock Text="Anti Helix" Width="350" Margin="-90,0,0,0" VerticalAlignment="Center" FontWeight="SemiBold" ></TextBlock>
+                                <TextBlock Text="30 minutter" Width="150" VerticalAlignment="Center" Foreground="#FF6B6E6F" FontWeight="SemiBold" TextAlignment="Right"></TextBlock>
+                                <TextBlock Text="249,00 kr." Width="134" VerticalAlignment="Center" Foreground="DodgerBlue" FontWeight="SemiBold" TextAlignment="Right"></TextBlock>
+                            </StackPanel>
+                            <TextBlock Text="Anti helix piercingen sidder modsat helix piercingen, i den del af øret tættest på hovedet. Kun forsiden af en anti helix piercing vil være synlig når man ser øret forfra, da resten af smykket vil være gemt bag folden i øret." TextWrapping="Wrap" Foreground="#D8000000" Padding="0 5"></TextBlock>
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                                <CheckBox VerticalAlignment="Center"/>
+                                <TextBlock Text="Anti Tragus" Width="350" Margin="-90,0,0,0" VerticalAlignment="Center" FontWeight="SemiBold" ></TextBlock>
+                                <TextBlock Text="30 minutter" Width="150" VerticalAlignment="Center" Foreground="#FF6B6E6F" FontWeight="SemiBold" TextAlignment="Right" FontFamily="Segoe UI"></TextBlock>
+                                <TextBlock Text="249,00 kr." Width="134" VerticalAlignment="Center" Foreground="DodgerBlue" FontWeight="SemiBold" TextAlignment="Right"></TextBlock>
+                            </StackPanel>
+                            <TextBlock Text="Anti tragus piercingen sidder i den del af brusken som starter lige over øreflippen. Der er tale om den lille 'flap' som sidder over for tragus, deraf navnet anti tragus." TextWrapping="Wrap" Foreground="#D8000000" Padding="0 5"></TextBlock>
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                                <CheckBox VerticalAlignment="Center"/>
+                                <TextBlock Text="Anti Lonbe" Width="350" Margin="-90,0,0,0" VerticalAlignment="Center" FontWeight="SemiBold" ></TextBlock>
+                                <TextBlock Text="30 minutter" Width="150" VerticalAlignment="Center" Foreground="#FF6B6E6F" FontWeight="SemiBold" TextAlignment="Right"></TextBlock>
+                                <TextBlock Text="249,00 kr." Width="134" VerticalAlignment="Center" Foreground="DodgerBlue" FontWeight="SemiBold" TextAlignment="Right"></TextBlock>
+                            </StackPanel>
+                            <TextBlock Text="Anti lobe sidder i det lille stykke tid som forbinder hovedet og øreflippen. Det ligner altså en øreflipspiercing med placering tæt på ansigtet." TextWrapping="Wrap" Foreground="#D8000000" Padding="0 5"></TextBlock>
+                        </StackPanel>
+                    </ScrollViewer>
+                    <ScrollViewer Name="ProductContent2" VerticalAlignment="Center" HorizontalAlignment="Center" Width="715" Height="500" Margin="185,0,0,-59" Padding="25 15" HorizontalScrollMode="Disabled" VerticalScrollMode="Enabled" Visibility="Collapsed" Background="#66FFFFFF">
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                                <CheckBox VerticalAlignment="Center"/>
+                                <TextBlock Text="Anti Helix" Width="350" Margin="-90,0,0,0" VerticalAlignment="Center" FontWeight="SemiBold" ></TextBlock>
+                                <TextBlock Text="30 minutter" Width="150" VerticalAlignment="Center" Foreground="#FF6B6E6F" FontWeight="SemiBold" TextAlignment="Right"></TextBlock>
+                                <TextBlock Text="249,00 kr." Width="134" VerticalAlignment="Center" Foreground="DodgerBlue" FontWeight="SemiBold" TextAlignment="Right"></TextBlock>
+                            </StackPanel>
+                            <TextBlock Text="Anti helix piercingen sidder modsat helix piercingen, i den del af øret tættest på hovedet. Kun forsiden af en anti helix piercing vil være synlig når man ser øret forfra, da resten af smykket vil være gemt bag folden i øret." TextWrapping="Wrap" Foreground="#D8000000" Padding="0 5"></TextBlock>
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                                <CheckBox VerticalAlignment="Center"/>
+                                <TextBlock Text="Anti Tragus" Width="350" Margin="-90,0,0,0" VerticalAlignment="Center" FontWeight="SemiBold" ></TextBlock>
+                                <TextBlock Text="30 minutter" Width="150" VerticalAlignment="Center" Foreground="#FF6B6E6F" FontWeight="SemiBold" TextAlignment="Right"></TextBlock>
+                                <TextBlock Text="249,00 kr." Width="134" VerticalAlignment="Center" Foreground="DodgerBlue" FontWeight="SemiBold" TextAlignment="Right"></TextBlock>
+                            </StackPanel>
+                            <TextBlock Text="Anti tragus piercingen sidder i den del af brusken som starter lige over øreflippen. Der er tale om den lille 'flap' som sidder over for tragus, deraf navnet anti tragus." TextWrapping="Wrap" Foreground="#D8000000" Padding="0 5"></TextBlock>
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                                <CheckBox VerticalAlignment="Center"/>
+                                <TextBlock Text="Anti Lonbe" Width="350" Margin="-90,0,0,0" VerticalAlignment="Center" FontWeight="SemiBold" ></TextBlock>
+                                <TextBlock Text="30 minutter" Width="150" VerticalAlignment="Center" Foreground="#FF6B6E6F" FontWeight="SemiBold" TextAlignment="Right"></TextBlock>
+                                <TextBlock Text="249,00 kr." Width="134" VerticalAlignment="Center" Foreground="DodgerBlue" FontWeight="SemiBold" TextAlignment="Right"></TextBlock>
+                            </StackPanel>
+                            <TextBlock Text="Anti lobe sidder i det lille stykke tid som forbinder hovedet og øreflippen. Det ligner altså en øreflipspiercing med placering tæt på ansigtet." TextWrapping="Wrap" Foreground="#D8000000" Padding="0 5"></TextBlock>
+                        </StackPanel>
+                    </ScrollViewer>
+                    <Grid Name="ProductContent3" VerticalAlignment="Center" HorizontalAlignment="Center" Width="715" Height="500" Margin="185,0,0,-59" Visibility="Collapsed" Background="#66FFFFFF"/>
+                    <Grid Name="ProductContent4" VerticalAlignment="Center" HorizontalAlignment="Center" Width="715" Height="500" Margin="185,0,0,-59" Visibility="Collapsed" Background="#66FFFFFF"/>
+                    <Grid Name="ProductContent5" VerticalAlignment="Center" HorizontalAlignment="Center" Width="715" Height="500" Margin="185,0,0,-59" Visibility="Collapsed" Background="#66FFFFFF"/>
+                    <Grid Name="ProductContent6" VerticalAlignment="Center" HorizontalAlignment="Center" Width="715" Height="500" Margin="185,0,0,-59" Visibility="Collapsed" Background="#66FFFFFF"/>
+                    <Grid Name="ProductContent7" VerticalAlignment="Center" HorizontalAlignment="Center" Width="715" Height="500" Margin="185,0,0,-59" Visibility="Collapsed" Background="#66FFFFFF"/>
+                    <Grid Name="ProductContent8" VerticalAlignment="Center" HorizontalAlignment="Center" Width="715" Height="500" Margin="185,0,0,-59" Visibility="Collapsed" Background="#66FFFFFF"/>
+                    <Grid Name="ProductContent9" VerticalAlignment="Center" HorizontalAlignment="Center" Width="715" Height="500" Margin="185,0,0,-59" Visibility="Collapsed" Background="#66FFFFFF"/>
+                    <Grid Name="ProductContent10" VerticalAlignment="Center" HorizontalAlignment="Center" Width="715" Height="500" Margin="185,0,0,-59" Visibility="Collapsed" Background="#66FFFFFF"/>
+                </Grid>
+            </Grid>
+            <Grid Name="VælgMedarbejder" Visibility="Collapsed" Width="900" Height="560" Background="#D8FFFFFF" Margin="0,0,0,100" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Height="60" Background="White" Padding="9 0">
+                    <TextBlock Tapped="BookingVidere" Name="tilbageTilServiceIkon" FontFamily="Segoe MDL2 Assets" Text="&#xEC52;" Margin="0,4,0,0" Width="25" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="20" Foreground="#FFFF3636" TextAlignment="Right" PointerEntered="ChangeCursorTilMedarbejderEnter" PointerExited="ChangeCursorTilMedarbejderExit"></TextBlock>
+                    <TextBlock Tapped="BookingVidere" Name="tilbageTilServiceT" Text="VÆLG SERVICE" HorizontalAlignment="Center" VerticalAlignment="Center" Width="115" FontWeight="SemiBold" FontSize="16" Foreground="#FFFF3636" TextAlignment="Center" PointerEntered="ChangeCursorTilMedarbejderEnter" PointerExited="ChangeCursorTilMedarbejderExit"></TextBlock>
+                    <TextBlock Text="VÆLG MEDARBEJDER" Width="485" HorizontalAlignment="Center" Padding="110,0,2,0" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="24" Foreground="#FF333333" TextAlignment="Center" FontFamily="Segoe UI"></TextBlock>
+                    <TextBlock Tapped="BookingVidere" Name="videreTilTidT" Text="NÆSTE SKRIDT: VÆLG TIDSPUNKT" HorizontalAlignment="Center" VerticalAlignment="Center" Width="250" FontWeight="SemiBold" FontSize="16" Foreground="LightGray" TextAlignment="Center"></TextBlock>
+                    <!--<TextBlock Tapped="BookingVidere" Name="videreTilTidIkon" FontFamily="Segoe MDL2 Assets" Text="&#xEBE7;" Margin="0,4,0,0" Width="25" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="20" Foreground="LightGray" TextAlignment="Right" PointerEntered="ChangeCursorTilMedarbejderEnter" PointerExited="ChangeCursorTilMedarbejderExit"></TextBlock>-->
+                </StackPanel>
+                <Rectangle HorizontalAlignment="Center" Width="900" Height="1" Margin="0,0,0,439" Fill="#2F000000"></Rectangle>
+                <!--<TextBlock Name="valgteServicesTitle" Text="Valgte Services: " TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,70,0,0" FontWeight="SemiBold"></TextBlock>
+                <TextBlock Name="valgteServices" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="215,70,0,0"></TextBlock>-->
+                <StackPanel Margin="0,60,0,0" Padding="100 40">
+                    <StackPanel AccessKey="1" Name="Medarbejder" Padding="10 10" Background="White" Orientation="Horizontal" Margin="0,0,0,15">
+                        <Image Source="Assets/defaultPic.jpg" Width="50" HorizontalAlignment="Left" VerticalAlignment="Top"></Image>
+                        <StackPanel Width="530" Padding="10,0,0,0">
+                            <TextBlock Text="Beneg Lysgaard" FontWeight="SemiBold" Foreground="DodgerBlue" FontSize="17" Margin="0,-7,0,0"></TextBlock>
+                            <TextBlock Text="Professionel Body Piercer" FontStyle="Oblique" Margin="0,0,0,10"></TextBlock>
+                            <TextBlock Text="Udd. Professionel Body Piercet siden 2010 startet i lærer som body piercer i 2008. - 2010." TextWrapping="Wrap" Width="400" HorizontalAlignment="Left"></TextBlock>
+                        </StackPanel>
+                        <Rectangle Tapped="BookingVidere" Name="VidereTilTidspunktBackground" Width="100" Fill="#CC448AFF" Height="30" VerticalAlignment="Top" PointerEntered="Medarbejder_PointerEntered" PointerExited="Medarbejder_PointerExited"></Rectangle>
+                        <TextBlock Tapped="BookingVidere" Name="VidereTilTidspunktTekst" Text="VÆLG" Margin="-100,0,0,59" Padding="0,4,0,0" Height="30" Width="100" TextAlignment="Center" Foreground="White" PointerEntered="Medarbejder_PointerEntered" PointerExited="Medarbejder_PointerExited"></TextBlock>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+            <Grid Name="VælgTidspunkt" Visibility="Collapsed" Width="900" Height="560" Background="#D8FFFFFF" Margin="0,0,0,100" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Height="60" Background="White" Padding="9 0">
+                    <TextBlock Tapped="BookingVidere" Name="tilbageTilMedarbejderIkon" FontFamily="Segoe MDL2 Assets" Text="&#xEC52;" Margin="0,4,0,0" Width="25" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="20" Foreground="#FFFF3636" TextAlignment="Right" PointerEntered="ChangeCursorTilMedarbejderEnter" PointerExited="ChangeCursorTilMedarbejderExit"></TextBlock>
+                    <TextBlock Tapped="BookingVidere" Name="tilbageTilMedarbejderT" Text="VÆLG MEDARBEJDER" HorizontalAlignment="Center" VerticalAlignment="Center" Width="165" FontWeight="SemiBold" FontSize="16" Foreground="#FFFF3636" TextAlignment="Center" PointerEntered="ChangeCursorTilMedarbejderEnter" PointerExited="ChangeCursorTilMedarbejderExit"></TextBlock>
+                    <TextBlock Text="VÆLG TIDSPUNKT" Width="440" HorizontalAlignment="Center" Padding="55,0,2,0" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="24" Foreground="#FF333333" TextAlignment="Center" FontFamily="Segoe UI"></TextBlock>
+                    <TextBlock Tapped="BookingVidere" Name="videreTilKontaktT" Text="ANGIV KONTAKTOPLYSNIGER" HorizontalAlignment="Center" VerticalAlignment="Center" Width="220" FontWeight="SemiBold" FontSize="16" Foreground="LightGray" TextAlignment="Center" PointerEntered="ChangeCursorTilKontaktEnter" PointerExited="ChangeCursorTilKontaktExit"></TextBlock>
+                    <TextBlock Tapped="BookingVidere" Name="videreTilKontaktIkon" FontFamily="Segoe MDL2 Assets" Text="&#xEBE7;" Margin="0,4,0,0" Width="25" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="20" Foreground="LightGray" TextAlignment="Right" PointerEntered="ChangeCursorTilKontaktEnter" PointerExited="ChangeCursorTilKontaktExit"></TextBlock>
+                </StackPanel>
+                <TextBlock Name="valgteMedarbejderTitle" Text="Valgte Medarbejder: " TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,70,0,0" FontWeight="SemiBold"></TextBlock>
+                <TextBlock Name="valgteMedarbejder" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="225,70,0,0"></TextBlock>
+                <DatePicker VerticalAlignment="Top" Name="selectDate" Visibility="Visible" DateChanged="selectDate_DateChanged" Margin="80,100,0,0"/>
+                <StackPanel Name="selectTid" Margin="350,100,0,0" Padding="0 0" Orientation="Horizontal" Height="32" VerticalAlignment="Top" Width="420">
+                </StackPanel>
+                <StackPanel Name="selectTid2" Margin="350,140,0,0" Padding="0 0" Orientation="Horizontal" Height="32" VerticalAlignment="Top" Width="420">
+                </StackPanel>
+                <StackPanel Name="selectTid3" Margin="350,180,0,0" Padding="0 0" Orientation="Horizontal" Height="32" VerticalAlignment="Top" Width="420">
+                </StackPanel>
+                <TextBlock Name="valgteTidTekst" FontWeight="SemiBold" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36" Foreground="#FF333333" ></TextBlock>
+                <!--<Border Name="vælgtidborder" Width="100" Visibility="Collapsed" Height="32" VerticalAlignment="Top" Margin="63,100,0,0" BorderBrush="DodgerBlue" BorderThickness="2"/>-->
+            </Grid>
+            <Grid Name="AngivKontaktOplysninger" Visibility="Visible" Width="900" Height="560" Background="#D8FFFFFF" Margin="0,0,0,100" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Height="60" Background="White" Padding="9 0">
+                    <TextBlock Tapped="BookingVidere" Name="tilbageTilTidIkon" FontFamily="Segoe MDL2 Assets" Text="&#xEC52;" Margin="0,4,0,0" Width="25" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="20" Foreground="#FFFF3636" TextAlignment="Right" PointerEntered="ChangeCursorTilMedarbejderEnter" PointerExited="ChangeCursorTilMedarbejderExit"></TextBlock>
+                    <TextBlock Tapped="BookingVidere" Name="tilbageTilTidT" Text="VÆLG TIDSPUNKT" HorizontalAlignment="Center" VerticalAlignment="Center" Width="140" FontWeight="SemiBold" FontSize="16" Foreground="#FFFF3636" TextAlignment="Center" PointerEntered="ChangeCursorTilMedarbejderEnter" PointerExited="ChangeCursorTilMedarbejderExit"></TextBlock>
+                    <TextBlock Text="ANGIV KONTAKTOPLYSNINGER" Width="530" HorizontalAlignment="Center" Padding="20,0,2,0" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="24" Foreground="#FF333333" TextAlignment="Center" FontFamily="Segoe UI"></TextBlock>
+                    <TextBlock Tapped="BookingVidere" Visibility="Collapsed" Name="videreTilBekræftT" Text="BEKRÆFT BOOKING" HorizontalAlignment="Center" VerticalAlignment="Center" Width="160" FontWeight="SemiBold" FontSize="16" Foreground="LightGray" TextAlignment="Center"></TextBlock>
+                    <TextBlock Tapped="BookingVidere" Visibility="Collapsed" Name="videreTilBekræftIkon" FontFamily="Segoe MDL2 Assets" Text="&#xEBE7;" Margin="0,4,0,0" Width="25" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="20" Foreground="LightGray" TextAlignment="Right" PointerEntered="ChangeCursorTilMedarbejderEnter" PointerExited="ChangeCursorTilMedarbejderExit"></TextBlock>
+                </StackPanel>
+                <Grid Name="AngivTlfGrid" Visibility="Collapsed">
+                    <Popup Name="LandeKodePopupBorder" IsOpen="False" Width="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,412,34">
+                        <Popup.ChildTransitions>
+                            <TransitionCollection>
+                                <PaneThemeTransition Edge="Top"></PaneThemeTransition>
+                            </TransitionCollection>
+                        </Popup.ChildTransitions>
+                        <Border VerticalAlignment="Center" HorizontalAlignment="Center" Width="112" Height="204" BorderThickness="1" Margin="0,0,0,0" BorderBrush="#FFCDCDCD"/>
+                    </Popup>
+                    <Border VerticalAlignment="Center" HorizontalAlignment="Center" Width="412" Height="34" BorderThickness="1" BorderBrush="#FFCDCDCD"/>
+                    <Rectangle Width="1" VerticalAlignment="Center" HorizontalAlignment="Center" Height="32" Margin="0,0,190,0" Fill="Black"/>
+                    <Rectangle Name="LandeKodeOpenBack" VerticalAlignment="Center" HorizontalAlignment="Center" Width="110" Height="32" Margin="0,0,300,0" Fill="#FFEEEEEE"/>
+                    <TextBlock Name="LandeKodeOpen" Tapped="LandeKodeOpen_Tapped" PointerEntered="LandeKodeOpen_PointerEntered" PointerExited="LandeKodeOpen_PointerExited" VerticalAlignment="Center" HorizontalAlignment="Center" Width="110" Height="32" Margin="0,0,300,0" Padding="15,1,0,0" Text="+45" FontSize="20" FontWeight="SemiBold" Foreground="#FF333333"/>
+                    <TextBlock Visibility="Visible" FontFamily="Segoe MDL2 Assets" Text="&#xE70D;" Name="LandeKodeOpenIkonDown" Tapped="LandeKodeOpen_Tapped" PointerEntered="LandeKodeOpen_PointerEntered" PointerExited="LandeKodeOpen_PointerExited" VerticalAlignment="Center" HorizontalAlignment="Center" Height="32" Margin="0,0,232,0" Padding="10 10" FontSize="14" FontWeight="SemiBold" Foreground="#FF333333"/>
+                    <TextBlock Visibility="Collapsed" FontFamily="Segoe MDL2 Assets" Text="&#xE70E;" Name="LandeKodeOpenIkonUp" Tapped="LandeKodeOpen_Tapped" PointerEntered="LandeKodeOpen_PointerEntered" PointerExited="LandeKodeOpen_PointerExited" VerticalAlignment="Center" HorizontalAlignment="Center" Height="32" Margin="0,0,232,0" Padding="10 10" FontSize="14" FontWeight="SemiBold" Foreground="#FF333333"/>
+                    <Popup Name="LandeKodePopup" IsOpen="False" Width="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,32,410,0">
+                        <Popup.ChildTransitions>
+                            <TransitionCollection>
+                                <PaneThemeTransition Edge="Top"></PaneThemeTransition>
+                            </TransitionCollection>
+                        </Popup.ChildTransitions>
+                        <StackPanel Background="White" Width="110" >
+                            <TextBlock Text="+45" Padding="10 2"></TextBlock>
+                            <TextBlock Text="+46" Padding="10 2"></TextBlock>
+                            <TextBlock Text="+47" Padding="10 2"></TextBlock>
+                            <TextBlock Text="+49" Padding="10 2"></TextBlock>
+                            <TextBlock Text="+44" Padding="10 2"></TextBlock>
+                            <TextBlock Text="+298" Padding="10 2"></TextBlock>
+                            <TextBlock Text="+299" Padding="10,2,10,4"></TextBlock>
+                        </StackPanel>
+                    </Popup>
+                    <TextBox HorizontalAlignment="Center" Name="KontaktTlf" TextChanged="KontaktTlf_TextChanged" PlaceholderText="Mobil" Width="300" VerticalAlignment="Center" Margin="110,0,0,0" BorderBrush="#CCFFFFFF" Background="#CCFFFFFF"/>
+                    <Rectangle Name="VidereTilKontaktOplBackground" Width="100" Height="32" Margin="0,100,0,0" Fill="#FFBDBDBD"></Rectangle>
+                    <TextBlock Name="VidereTilKontaktOplTekst" Tapped="BookingVidere" PointerEntered="VidereTilKontaktOplTekst_PointerEntered" PointerExited="VidereTilKontaktOplTekst_PointerExited" Text="VIDERE" TextAlignment="Center" Padding="0,5,0,0" Foreground="White" Width="100" Height="32" Margin="0,100,0,0"></TextBlock>
+                </Grid>
+                <Grid Name="AngivKontakOplGrid" Visibility="Visible" >
+                    <StackPanel Name="kontaktBorders" Orientation="Vertical">
+                        <Border Height="34" Width="382" VerticalAlignment="Top" Margin="194,98,0,0" BorderThickness="1" BorderBrush="#FFCDCDCD"/>
+                        <Border Height="34" Width="382" VerticalAlignment="Top" Margin="194,6,0,0" BorderThickness="1" BorderBrush="#FFCDCDCD"/>
+                        <StackPanel Orientation="Horizontal" Width="382" Margin="194,6,0,0" Height="34">
+                            <Border Height="34" Width="112" VerticalAlignment="Top" Margin="0,0,0,0" BorderThickness="1" BorderBrush="#FFCDCDCD"/>
+                            <Border Height="34" Width="262" VerticalAlignment="Top" Margin="8,0,0,0" BorderThickness="1" BorderBrush="#FFCDCDCD"/>
+                        </StackPanel>
+                        <Border Height="34" Width="382" VerticalAlignment="Top" Margin="194,6,0,0" BorderThickness="1" BorderBrush="#FFCDCDCD"/>
+                        <Border Height="34" Width="382" VerticalAlignment="Top" Margin="194,6,0,0" BorderThickness="1" BorderBrush="#FFCDCDCD"/>
+                        <Border Height="34" Width="382" VerticalAlignment="Top" Margin="194,6,0,0" BorderThickness="1" BorderBrush="#FFCDCDCD"/>
+                        <Border Height="34" Width="150" VerticalAlignment="Top" Margin="-38,6,0,0" BorderThickness="1" BorderBrush="#FFCDCDCD"/>
+                    </StackPanel>
+                    <StackPanel Name="AngivKontakt" Visibility="Visible" VerticalAlignment="Center" Margin="0,60,0,0">
+                        <StackPanel Orientation="Horizontal" Padding="230 0" Margin="0,0,0,8">
+                            <TextBlock Text="Navn" Width="100" TextAlignment="Right" Padding="0,5,5,0" FontWeight="SemiBold" Foreground="#FF333333" ></TextBlock>
+                            <TextBlock Text="*" Margin="0,0,20,0" Padding="0,5,0,0" FontWeight="SemiBold" Foreground="DodgerBlue"></TextBlock>
+                            <TextBox HorizontalAlignment="Center" Name="KontaktNavn" PlaceholderText="Navn" Width="380" VerticalAlignment="Center" Margin="0,0,0,0" BorderBrush="#CCFFFFFF" Background="#CCFFFFFF"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Padding="230 0" Margin="0,0,0,8">
+                            <TextBlock Text="Adresse" Width="100" TextAlignment="Right" Padding="0,5,5,0" FontWeight="SemiBold" Foreground="#FF333333" ></TextBlock>
+                            <TextBlock Text="*" Margin="0,0,20,0" Padding="0,5,0,0" FontWeight="SemiBold" Foreground="DodgerBlue"></TextBlock>
+                            <TextBox HorizontalAlignment="Center" Name="KontaktAdresse" PlaceholderText="Adresse" Width="380" VerticalAlignment="Center" Margin="0,0,0,0" BorderBrush="#CCFFFFFF" Background="#CCFFFFFF"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Padding="230 0" Margin="0,0,0,8">
+                            <TextBlock Text="Postnr / by" Width="100" TextAlignment="Right" Padding="0,5,5,0" FontWeight="SemiBold" Foreground="#FF333333" ></TextBlock>
+                            <TextBlock Text="*" Margin="0,0,20,0" Padding="0,5,0,0" FontWeight="SemiBold" Foreground="DodgerBlue"></TextBlock>
+                            <TextBox HorizontalAlignment="Center" Name="KontaktPostby" PlaceholderText="Postnr" Width="110" VerticalAlignment="Center" Margin="0,0,10,0" BorderBrush="#CCFFFFFF" Background="#CCFFFFFF"/>
+                            <TextBox HorizontalAlignment="Center" Name="KontaktBy" PlaceholderText="By" Width="260" VerticalAlignment="Center" Margin="0,0,0,0" BorderBrush="#CCFFFFFF" Background="#CCFFFFFF"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Padding="230 0" Margin="0,0,0,8">
+                            <TextBlock Text="Email" Width="100" TextAlignment="Right" Padding="0,5,5,0" FontWeight="SemiBold" Foreground="#FF333333" ></TextBlock>
+                            <TextBlock Text="*" Margin="0,0,20,0" Padding="0,5,0,0" FontWeight="SemiBold" Foreground="DodgerBlue"></TextBlock>
+                            <TextBox HorizontalAlignment="Center" Name="KontaktEmail" PlaceholderText="Email" Width="380" VerticalAlignment="Center" Margin="0,0,0,0" BorderBrush="#CCFFFFFF" Background="#CCFFFFFF"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Padding="230 0" Margin="0,0,0,8">
+                            <TextBlock Text="Mobil" Width="100" TextAlignment="Right" Padding="0,5,5,0" FontWeight="SemiBold" Foreground="#FF333333" ></TextBlock>
+                            <TextBlock Text="*" Margin="0,0,20,0" Padding="0,5,0,0" FontWeight="SemiBold" Foreground="DodgerBlue"></TextBlock>
+                            <StackPanel Orientation="Horizontal" Height="32">
+                                <Grid Width="100" Background="#FFEEEEEE">
+                                    <Image Source="Assets/dk.png" HorizontalAlignment="Left" Height="10" Margin="14,0,0,0"/>
+                                    <TextBlock Text="+45" HorizontalAlignment="Right" Padding="0,4,35,0"></TextBlock>
+                                </Grid>
+                                <Rectangle Width="1" Height="32" Fill="#FFCDCDCD"></Rectangle>
+                                <Grid Width="279" Background="#FFEAEAEA">
+                                    <!--<Rectangle Width="280" Fill="Blue"></Rectangle>-->
+                                    <TextBlock Text="28694800" Padding="10,4,0,0"></TextBlock>
+                                    <HyperlinkButton HorizontalAlignment="Right" Content="SKIFT MOBILNUMMER" Padding="0,0,10,4" Foreground="Black" FontSize="11" Click="HyperlinkButton_Click"/>
+                                    <!--<TextBlock Text="28694800" TextAlignment="Right" Padding="0,4,10,0"></TextBlock>-->
+                                </Grid>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Padding="230 0" Margin="0,0,0,8">
+                            <TextBlock Text="Telefon" Width="100" TextAlignment="Right" Padding="0,5,5,0" FontWeight="SemiBold" Foreground="#FF333333" ></TextBlock>
+                            <TextBlock Text="*" Margin="0,0,20,0" Padding="0,5,0,0" FontWeight="SemiBold" Foreground="DodgerBlue"></TextBlock>
+                            <StackPanel Orientation="Horizontal" Height="32">
+                                <Grid Width="100" Background="#FFEEEEEE">
+                                    <Image Source="Assets/dk.png" HorizontalAlignment="Left" Height="10" Margin="14,0,0,0"/>
+                                    <TextBlock Text="+45" HorizontalAlignment="Right" Padding="0,4,35,0"></TextBlock>
+                                </Grid>
+                                <Rectangle Width="1" Height="32" Fill="#FFCDCDCD"></Rectangle>
+                                <Grid Width="279" Background="#FFEAEAEA">
+                                    <TextBox HorizontalAlignment="Center" Name="KontaktTlf2" PlaceholderText="Telefon" Width="280" VerticalAlignment="Center" Margin="0,0,0,0" BorderBrush="#CCFFFFFF" Background="#CCFFFFFF"/>
+                                </Grid>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Padding="230 0" Margin="0,0,0,8">
+                            <TextBlock Text="Køn" Width="100" TextAlignment="Right" Padding="0,5,5,0" FontWeight="SemiBold" Foreground="#FF333333" ></TextBlock>
+                            <TextBlock Text="*" Margin="0,0,20,0" Padding="0,5,0,0" FontWeight="SemiBold" Foreground="DodgerBlue"></TextBlock>
+                            <TextBox HorizontalAlignment="Center" Name="KontaktKøn" PlaceholderText="Køn" Width="148" VerticalAlignment="Center" Margin="0,0,0,0" BorderBrush="#CCFFFFFF" Background="#CCFFFFFF"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Padding="230 0" Margin="0,0,0,8">
+                            <TextBlock Text="Fødselsdag" Width="100" TextAlignment="Right" Padding="0,5,5,0" FontWeight="SemiBold" Foreground="#FF333333" ></TextBlock>
+                            <TextBlock Text="*" Margin="0,0,20,0" Padding="0,5,0,0" FontWeight="SemiBold" Foreground="DodgerBlue"></TextBlock>
+                            <DatePicker HorizontalAlignment="Center" Name="KontaktFødselsdag" Width="380" VerticalAlignment="Center" Margin="0,0,0,0" BorderBrush="#CCFFFFFF" Background="#CCFFFFFF"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Padding="230 0" Margin="0,0,0,8">
+                            <TextBlock Text="Nyhedsbrev" Width="100" TextAlignment="Right" Padding="0,5,5,0" FontWeight="SemiBold" Foreground="#FF333333" ></TextBlock>
+                            <TextBlock Text="*" Margin="0,0,20,0" Padding="0,5,0,0" FontWeight="SemiBold" Foreground="DodgerBlue"></TextBlock>
+                            <StackPanel Width="380">
+                                <CheckBox Content="Ja tak - jeg vil gerne modtage nyheder via email"/>
+                                <CheckBox Content="Ja tak - jeg vil gerne modtage nyheder via SMS"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel>
+                            <Grid>
+                                <Rectangle Name="AngivKontaktIkon" Width="100" Fill="#CC448AFF" Height="30" Margin="0,0,84,0"></Rectangle>
+                                <TextBlock Tapped="BookingVidere" Name="videreTilBekræftBooking" Text="VIDERE" Margin="0,0,84,0" Padding="0,4,0,0" Height="30" Width="100" TextAlignment="Center" Foreground="White"></TextBlock>
+                            </Grid>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+            <Grid Name="BekræftBooking" Visibility="Collapsed" Width="900" Height="560" Background="#D8FFFFFF" Margin="0,0,0,100" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Height="60" Background="White" Padding="9 0">
+                    <TextBlock Tapped="BookingVidere" Name="tilbageTilKontaktIkon" FontFamily="Segoe MDL2 Assets" Text="&#xEC52;" Margin="0,4,0,0" Width="25" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="20" Foreground="#FFFF3636" TextAlignment="Right" PointerEntered="ChangeCursorTilMedarbejderEnter" PointerExited="ChangeCursorTilMedarbejderExit"></TextBlock>
+                    <TextBlock Tapped="BookingVidere" Name="tilbageTilKontaktT" Text="ANGIV KONTAKTOPLYSNINGER" HorizontalAlignment="Center" VerticalAlignment="Center" Width="230" FontWeight="SemiBold" FontSize="16" Foreground="#FFFF3636" TextAlignment="Center" PointerEntered="ChangeCursorTilMedarbejderEnter" PointerExited="ChangeCursorTilMedarbejderExit"></TextBlock>
+                    <TextBlock Text="BEKRÆFT BOOKING" Width="625" HorizontalAlignment="Center" Padding="0,0,255,2" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="24" Foreground="#FF333333" TextAlignment="Center" FontFamily="Segoe UI"></TextBlock>
+                </StackPanel>
+            </Grid>
+            <StackPanel Orientation="Horizontal" Name="BookingProcess" Height="60" HorizontalAlignment="Center" Width="900" VerticalAlignment="Center" Margin="0,520,0,0" Background="White" Padding="60 15">
+                <TextBlock Name="BookingProcessService" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" FontWeight="SemiBold"></TextBlock>
+                <TextBlock Name="BookingProcessArrow1" Visibility="Collapsed" FontFamily="Segoe MDL2 Assets" Text="&#xEBE7;" Margin="10,3,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold"></TextBlock>
+                <TextBlock Name="BookingProcessMedarbejder" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" FontWeight="SemiBold"></TextBlock>
+                <TextBlock Name="BookingProcessArrow2" Visibility="Collapsed" FontFamily="Segoe MDL2 Assets" Text="&#xEBE7;" Margin="10,3,10,0" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold"></TextBlock>
+                <TextBlock Name="BookingProcessTidspunkt" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" FontWeight="SemiBold"></TextBlock>
             </StackPanel>
         </Grid>
-        <Grid Name="VælgTidspunkt" Visibility="Collapsed" Width="900" Height="560" Background="#D8FFFFFF" Margin="0,0,0,20" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Height="60" Background="White" Padding="9 0">
-                <TextBlock Tapped="BookingVidere" Name="tilbageTilMedarbejderIkon" FontFamily="Segoe MDL2 Assets" Text="&#xEC52;" Margin="0,4,0,0" Width="25" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="20" Foreground="#FFFF3636" TextAlignment="Right" PointerEntered="ChangeCursorTilMedarbejderEnter" PointerExited="ChangeCursorTilMedarbejderExit"></TextBlock>
-                <TextBlock Tapped="BookingVidere" Name="tilbageTilMedarbejderT" Text="VÆLG MEDARBEJDER" HorizontalAlignment="Center" VerticalAlignment="Center" Width="165" FontWeight="SemiBold" FontSize="16" Foreground="#FFFF3636" TextAlignment="Center" PointerEntered="ChangeCursorTilMedarbejderEnter" PointerExited="ChangeCursorTilMedarbejderExit"></TextBlock>
-                <TextBlock Text="VÆLG TIDSPUNKT" Width="440" HorizontalAlignment="Center" Padding="55,0,0,0" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="24" Foreground="#FF333333" TextAlignment="Center" FontFamily="Segoe UI"></TextBlock>
-                <TextBlock Tapped="BookingVidere" Name="videreTilKontaktT" Text="ANGIV KONTAKTOPLYSNIGER" HorizontalAlignment="Center" VerticalAlignment="Center" Width="220" FontWeight="SemiBold" FontSize="16" Foreground="LightGray" TextAlignment="Center" PointerEntered="ChangeCursorTilKontaktEnter" PointerExited="ChangeCursorTilKontaktExit"></TextBlock>
-                <TextBlock Tapped="BookingVidere" Name="videreTilKontaktIkon" FontFamily="Segoe MDL2 Assets" Text="&#xEBE7;" Margin="0,4,0,0" Width="25" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="20" Foreground="LightGray" TextAlignment="Right" PointerEntered="ChangeCursorTilKontaktEnter" PointerExited="ChangeCursorTilKontaktExit"></TextBlock>
-            </StackPanel>
-            <TextBlock Name="valgteMedarbejderTitle" Text="Valgte Medarbejder: " TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,70,0,0" FontWeight="SemiBold"></TextBlock>
-            <TextBlock Name="valgteMedarbejder" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="245,70,0,0"></TextBlock>
-            <DatePicker VerticalAlignment="Top" Name="selectDate" Visibility="Visible" DateChanged="selectDate_DateChanged" Margin="100,100,0,0"/>
-            <StackPanel Name="selectTid" Margin="440,100,0,0" Padding="0 0" Orientation="Horizontal" Height="65" VerticalAlignment="Top" Width="420">
-                
-            </StackPanel>
-            <StackPanel Name="selectTid2" Margin="440,150,0,0" Padding="0 0" Orientation="Horizontal" Height="65" VerticalAlignment="Top" Width="420">
-
-            </StackPanel>
-            <StackPanel Name="selectTid3" Margin="440,200,0,0" Padding="0 0" Orientation="Horizontal" Height="65" VerticalAlignment="Top" Width="420">
-
-            </StackPanel>
-            <TextBlock Name="valgteTidTekst" FontWeight="SemiBold" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36" Foreground="#FF333333" ></TextBlock>
-            <!--<Border Name="vælgtidborder" Width="100" Visibility="Collapsed" Height="32" VerticalAlignment="Top" Margin="63,100,0,0" BorderBrush="DodgerBlue" BorderThickness="2"/>-->
-        </Grid>
-        <Grid Name="AngivKontaktOplysninger" Visibility="Collapsed" Width="900" Height="560" Background="#D8FFFFFF" Margin="0,0,0,20" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Height="60" Background="White" Padding="9 0">
-                <TextBlock Tapped="BookingVidere" Name="tilbageTilTidIkon" FontFamily="Segoe MDL2 Assets" Text="&#xEC52;" Margin="0,4,0,0" Width="25" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="20" Foreground="#FFFF3636" TextAlignment="Right" PointerEntered="ChangeCursorTilMedarbejderEnter" PointerExited="ChangeCursorTilMedarbejderExit"></TextBlock>
-                <TextBlock Tapped="BookingVidere" Name="tilbageTilTidT" Text="VÆLG TIDSPUNKT" HorizontalAlignment="Center" VerticalAlignment="Center" Width="140" FontWeight="SemiBold" FontSize="16" Foreground="#FFFF3636" TextAlignment="Center" PointerEntered="ChangeCursorTilMedarbejderEnter" PointerExited="ChangeCursorTilMedarbejderExit"></TextBlock>
-                <TextBlock Text="ANGIV KONTAKTOPLYSNINGER" Width="530" HorizontalAlignment="Center" Padding="20,0,0,0" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="24" Foreground="#FF333333" TextAlignment="Center" FontFamily="Segoe UI"></TextBlock>
-                <TextBlock Tapped="BookingVidere" Name="videreTilBekræftT" Text="BEKRÆFT BOOKING" HorizontalAlignment="Center" VerticalAlignment="Center" Width="160" FontWeight="SemiBold" FontSize="16" Foreground="LightGray" TextAlignment="Center"></TextBlock>
-                <TextBlock Tapped="BookingVidere" Name="videreTilBekræftIkon" FontFamily="Segoe MDL2 Assets" Text="&#xEBE7;" Margin="0,4,0,0" Width="25" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold" FontSize="20" Foreground="LightGray" TextAlignment="Right" PointerEntered="ChangeCursorTilMedarbejderEnter" PointerExited="ChangeCursorTilMedarbejderExit"></TextBlock>
-            </StackPanel>
-            <TextBlock Name="valgteTidTitle" Text="Valgte Tidspunkt: " TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,70,0,0" FontWeight="SemiBold"></TextBlock>
-            <TextBlock Name="valgteTid" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="225,70,0,0"></TextBlock>
-        </Grid>
-
         <Rectangle Name="InfoPopupBackground" Height="40" Width="228" VerticalAlignment="Bottom" HorizontalAlignment="Right" Fill="#99FFFFFF" Margin="0,0,40,40" PointerEntered="InfoPointerEnter" PointerExited="InfoPointerExit"/>
         <TextBlock Text="INFORMATION OM OS" FontWeight="SemiBold" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,40,40" Height="40" Width="228" Padding="0,9,0,9" TextAlignment="Center" Foreground="Black" PointerEntered="InfoPointerEnter" PointerExited="InfoPointerExit" Tapped="InfoPopup_Tapped"></TextBlock>
         <Popup Name="InfoPopup" IsOpen="False" Width="0" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,268,645">
