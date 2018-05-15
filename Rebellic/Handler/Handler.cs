@@ -311,8 +311,6 @@ namespace Rebellic
                 case 2:
                     break;
             }
-
-
             count++;
         }
     }
