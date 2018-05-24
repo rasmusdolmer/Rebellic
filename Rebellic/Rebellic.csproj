@@ -95,6 +95,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Employee.cs" />
     <Compile Include="Handler\Handler.cs" />
     <Compile Include="LogInd.xaml.cs">
       <DependentUpon>LogInd.xaml</DependentUpon>

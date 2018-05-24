@@ -10,6 +10,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Windows.System.Threading;
 using Windows.UI;
 using Windows.UI.Input;
 using Windows.UI.Text;
@@ -18,6 +19,8 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
+using Windows.UI.Xaml.Shapes;
 using Rebellic;
 using WebService;
 
@@ -41,6 +44,8 @@ namespace Rebellic
         public int SelectedProductCategory { get; set; }
         private Dictionary<int, string> Productlist = new Dictionary<int, string>();
 
+        public ObservableCollection<StackPanel> EmployeeCollection { get; set; }
+
         private SolidColorBrush _videreTilMedarbejder;
 
         public SolidColorBrush VidereTilMedarbejder
@@ -55,7 +60,6 @@ namespace Rebellic
                 OnPropertyChanged();
             }
         }
-
 
         #region BookingViewsVisibilty
 
@@ -81,12 +85,42 @@ namespace Rebellic
                 OnPropertyChanged();
             }
         }
+        private Visibility _dateAndTimeViewVisibilty;
 
-        public Visibility DateAndTimeViewVisibilty { get; set; }
-        public Visibility ContactViewVisibilty { get; set; }
-        public Visibility ConfirmViewVisibilty { get; set; }
+        public Visibility DateAndTimeViewVisibilty
+        {
+            get { return _dateAndTimeViewVisibilty; }
+            set
+            {
+                _dateAndTimeViewVisibilty = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public Visibility _contactViewVisibilty { get; set; }
+
+        public Visibility ContactViewVisibilty
+        {
+            get { return _contactViewVisibilty; }
+            set
+            {
+                _contactViewVisibilty = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public Visibility _confirmViewVisibilty { get; set; }
+
+        public Visibility ConfirmViewVisibilty
+        {
+            get { return _confirmViewVisibilty; }
+            set
+            {
+                _confirmViewVisibilty = value;
+                OnPropertyChanged();
+            }
+        }
         #endregion
-
 
         private string _chosenProducts;
 
@@ -108,14 +142,17 @@ namespace Rebellic
             ProductCategories = new ObservableCollection<TextBlock>();
             Products = new ObservableCollection<Product>();
             GridCollection = new ObservableCollection<Grid>();
+            EmployeeCollection = new ObservableCollection<StackPanel>();
             GetProductCategories();
+            GetEmployees();
             VidereTilMedarbejder = new SolidColorBrush(Colors.LightGray);
             EmployeeViewVisibilty = Visibility.Collapsed;
-
+            DateAndTimeViewVisibilty = Visibility.Collapsed;
         }
 
-        public Handler(ObservableCollection<TextBlock> productsCategories, ObservableCollection<Product> products, ObservableCollection<Grid> gridCollection, string categoryName)
+        public Handler(ObservableCollection<TextBlock> productsCategories, ObservableCollection<Product> products, ObservableCollection<Grid> gridCollection, ObservableCollection<StackPanel> employeeCollection, string categoryName)
         {
+            EmployeeCollection = employeeCollection;
             ProductCategories = productsCategories;
             Products = products;
             GridCollection = gridCollection;
@@ -149,6 +186,7 @@ namespace Rebellic
                             ProductCategories.Add(lvi);
                         }
                     }
+                    OnPropertyChanged();
                 }
                 catch (Exception)
                 {
@@ -289,10 +327,105 @@ namespace Rebellic
 
         }
 
+        public void GetEmployees()
+        {
+            const string serverUrl = "http://localhost:51992/";
+            HttpClientHandler handler = new HttpClientHandler();
+            handler.UseDefaultCredentials = true;
+            using (var client = new HttpClient(handler))
+            {
+                client.BaseAddress = new Uri(serverUrl);
+                client.DefaultRequestHeaders.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                try
+                {
+                    var responce = client.GetAsync("api/Employees").Result;
+                    if (responce.IsSuccessStatusCode)
+                    {
+                        var eys = responce.Content.ReadAsAsync<IEnumerable<Employee>>().Result;
+                        foreach (var ey in eys)
+                        {
+                            #region Dynamic Employee Controls
+                            StackPanel sp1 = new StackPanel();
+                            sp1.Padding = new Thickness(30, 10,30, 10);
+                            sp1.Background = new SolidColorBrush(Colors.White);
+                            sp1.Orientation = Orientation.Horizontal;
+                            sp1.Margin = new Thickness(50,15, 50, 0);
+                            EmployeeCollection.Add(sp1);
+
+                            Image img = new Image();
+                           
+                            img.Width = 50;
+                            img.HorizontalAlignment = HorizontalAlignment.Left;
+                            img.VerticalAlignment = VerticalAlignment.Top;
+
+                            StackPanel sp2 = new StackPanel();
+                            sp2.Width = 530;
+                            sp2.Padding = new Thickness(10, 0, 0, 0);
+
+                            sp1.Children.Add(img);
+                            sp1.Children.Add(sp2);
+
+                            TextBlock eName = new TextBlock();
+                            eName.Text = ey.Employee_Name;
+                            eName.FontWeight = FontWeights.SemiBold;
+                            eName.Foreground = new SolidColorBrush(Colors.DodgerBlue);
+                            eName.FontSize = 17;
+                            eName.Margin = new Thickness(0, -7, 0, 0);
+
+                            TextBlock eTitle = new TextBlock();
+                            eTitle.Text = "Professionel Body Piercer";
+                            eTitle.FontStyle = FontStyle.Oblique;
+                            eTitle.Margin = new Thickness(0, 0, 0, 10);
+
+                            TextBlock eDesc = new TextBlock();
+                            eDesc.Text =
+                                "Udd. Professionel Body Piercet siden 2010 startet i lærer som body piercer i 2008. - 2010.";
+                            eDesc.TextWrapping = TextWrapping.Wrap;
+                            eDesc.Width = 400;
+                            eDesc.HorizontalAlignment = HorizontalAlignment.Left;
+
+                            sp2.Children.Add(eName);
+                            sp2.Children.Add(eTitle);
+                            sp2.Children.Add(eDesc);
+
+                            Rectangle ChooseE = new Rectangle();
+                            ChooseE.Tapped += BookingVidere;
+                            ChooseE.Width = 100;
+                            ChooseE.Fill = new SolidColorBrush(Colors.DodgerBlue);
+                            ChooseE.Height = 30;
+                            ChooseE.VerticalAlignment = VerticalAlignment.Top;
+
+                            TextBlock ChooseEText = new TextBlock();
+                            ChooseEText.Text = "VÆLG";
+                            ChooseEText.Margin = new Thickness(-100, 0, 0, 59);
+                            ChooseEText.Padding = new Thickness(0, 4, 0, 0);
+                            ChooseEText.Height = 30;
+                            ChooseEText.Width = 100;
+                            ChooseEText.TextAlignment = TextAlignment.Center;
+                            ChooseEText.Foreground = new SolidColorBrush(Colors.White);
+                            ChooseEText.Tapped += BookingVidere;
+
+                            sp1.Children.Add(ChooseE);
+                            sp1.Children.Add(ChooseEText);
+                            #endregion
+                        }
+                    }                    
+                }
+                catch (Exception)
+                {
+
+                }
+           
+            }
+        }
+
         private int count = 1;
-        public void BookingVidere()
+
+        public void BookingVidere(object sender, RoutedEventArgs e)
         {
             ProductViewVisibility = Visibility.Collapsed;
+            EmployeeViewVisibilty = Visibility.Collapsed;
             DateAndTimeViewVisibilty = Visibility.Collapsed;
             ContactViewVisibilty = Visibility.Collapsed;
             ConfirmViewVisibilty = Visibility.Collapsed;
@@ -302,6 +435,7 @@ namespace Rebellic
                     if (Productlist.Count > 0)
                     {
                         EmployeeViewVisibilty = Visibility.Visible;
+                        count++;
                     }
                     else
                     {
@@ -309,9 +443,31 @@ namespace Rebellic
                     }
                     break;
                 case 2:
+                    DateAndTimeViewVisibilty = Visibility.Visible;
+                    count++;
                     break;
             }
-            count++;
+        }
+
+        public void BookingTilbage()
+        {
+            ProductViewVisibility = Visibility.Collapsed;
+            EmployeeViewVisibilty = Visibility.Collapsed;
+            DateAndTimeViewVisibilty = Visibility.Collapsed;
+            ContactViewVisibilty = Visibility.Collapsed;
+            ConfirmViewVisibilty = Visibility.Collapsed;
+            switch (count)
+            {
+                case 2:               
+                    ProductViewVisibility = Visibility.Visible;
+                    count--;
+                    break;
+                case 3:
+                    EmployeeViewVisibilty = Visibility.Visible;
+                    count--;
+                    break;
+            }
+
         }
     }
 }
